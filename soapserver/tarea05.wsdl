@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<definitions
+  name="reservasServ" 
+  targetNamespace="http://localhost/dwes05/tarea"
+  xmlns:dwes05="http://localhost/dwes05/tarea" 
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" 
+  xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" 
+  xmlns="http://schemas.xmlsoap.org/wsdl/"  
+  xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+  xsi:schemaLocation='http://schemas.xmlsoap.org/wsdl/ http://schemas.xmlsoap.org/wsdl/'
+>
+<!--Tipos de datos propios de este servicio -->
+<types>
+    <xsd:schema targetNamespace="http://localhost/dwes05/tarea">
+        <xsd:complexType name="tramo">
+            <xsd:sequence>
+                <xsd:element name="horaInicio" type="xsd:time"/>
+                <xsd:element name="horaFin" type="xsd:time"/>
+            </xsd:sequence>
+        </xsd:complexType>
+        
+        <xsd:complexType name="listaTramos">
+            <xsd:all>
+                <xsd:element name="tramo" type="dwes05:tramo" minOccurs="0" maxOccurs="unbounded"/>
+            </xsd:all>
+        </xsd:complexType>
+
+        <xsd:complexType name="idreserva">
+            <xsd:all>
+                <xsd:element name="zona" type="xsd:int"/>
+                <xsd:element name="fecha" type="xsd:date"/>
+                <xsd:element name="horaInicio" type="xsd:time"/>        
+            </xsd:all>
+        </xsd:complexType>
+
+        <xsd:complexType name="reserva">
+            <xsd:all>
+                <xsd:element name="user" type="xsd:int"/>
+                <xsd:element name="zona" type="xsd:int"/>
+                <xsd:element name="fecha" type="xsd:date"/>
+                <xsd:element name="tramo" type="dwes05:tramo"/>        
+            </xsd:all>
+        </xsd:complexType>
+
+        <xsd:complexType name="listaReservas">
+            <xsd:all>
+                <xsd:element name="fecha" type="xsd:date" />
+                <xsd:element name="zona" type="xsd:int" />
+                <xsd:element name="reservas" type="dwes05:listaTramos"/>                
+            </xsd:all>
+        </xsd:complexType>
+
+    </xsd:schema>    
+</types>
+
+<!-- Mensajes de este servicio -->
+<message name="datosNuevaReserva">
+    <part name="datosReserva" type="dwes05:reserva"/>
+</message>
+<message name="resultado">
+    <part name="resultado" type="xsd:int"/>
+</message>
+<message name="datosBorrarReserva">
+    <part name="datosIdReserva" type="dwes05:idreserva" />
+</message>
+<message name="datosListarReservas">
+    <part name="fecha" type="xsd:date"/>
+    <part name="zona" type="xsd:int"/>
+</message>
+<message name="listaReservasMsg">
+    <part name="listaReservas" type="dwes05:listaReservas" />
+</message>
+
+<!-- Definimos el conjunto de operaciones posibles -->
+<portType name="reservasOPs">
+    <operation name="crearReserva">
+        <input message="dwes05:datosNuevaReserva" />
+        <output message="dwes05:resultado" />
+    </operation>
+    <operation name="eliminarReserva">
+        <input message="dwes05:datosBorrarReserva" />
+        <output message="dwes05:resultado" />
+    </operation>
+    <operation name="listarReservas">
+        <input message="dwes05:datosListarReservas"/>
+        <output message="dwes05:listaReservasMsg"/>
+    </operation>
+</portType>
+
+<!--Enlazamos protocolo y formato con las operaciones -->
+<binding name="reservasBinding" type="dwes05:reservasOPs">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <operation name="crearReserva">
+        <soap:operation soapAction="http://localhost/dwes05/soapserver/index.php?crearReserva"/>
+        <input> 
+            <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://localhost/dwes05/tarea" />
+        </input>
+        <output>
+            <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://localhost/dwes05/tarea" />
+        </output>
+    </operation>
+    <operation name="eliminarReserva">
+        <soap:operation soapAction="http://localhost/dwes05/soapserver/index.php?eliminarReserva"/>
+        <input> 
+            <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://localhost/dwes05/tarea" />
+        </input>
+        <output>
+            <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://localhost/dwes05/tarea" />
+        </output>
+    </operation>
+    <operation name="listarReservas">
+        <soap:operation soapAction="http://localhost/dwes05/soapserver/index.php?listarReservas"/>
+        <input> 
+            <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://localhost/dwes05/tarea" />
+        </input>
+        <output>
+            <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://localhost/dwes05/tarea" />
+        </output>
+    </operation>
+</binding>
+
+<!-- Definimos el servicio -->
+<service name="reservasService">
+    <documentation>Servicio de reservas.</documentation>
+    <port name="reservasService" binding="dwes05:reservasBinding">
+        <soap:address location="http://localhost/dwes05/soapserver/index.php" />
+    </port>
+</service>        
+
+</definitions>
+
