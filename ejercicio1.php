@@ -1,6 +1,13 @@
 <?php
+//Verificamos si exiten las clases SoapClient y SoapServer
+if(class_exists(SoapClient)){
+    echo "<p>Existe la clase SoapClient</p>";
+}else{
+    echo "<p>Error: No existe la clase SoapClient</p>";
+}    
 
-if(esiste_classe($clase)){
-    
-}
-
+if(class_exists(SoapServer)){
+    echo "<p>Existe la clase SoapServer</p>";
+}else{
+    echo "<p>Error: No existe la clase SoapServer</p>";
+} 
