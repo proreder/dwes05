@@ -1,6 +1,6 @@
 <?php
 
-class Conexion{
+
 /**
  * Archivo de configuración para conectar con la base de datos usando PDO. 
  * La información a almacenará será DSN, usuario y contraseña, y se almacenará 
@@ -22,6 +22,5 @@ function connect(){
         return $connDB;
    
     }
-}
 
 

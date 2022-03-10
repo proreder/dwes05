@@ -1,4 +1,7 @@
 <?php
+require_once './soapserver/src/ReservasSoapHandler.php';
+$reservasSH=new ReservasSoapHandler();
+
 //Verificamos si exiten las clases SoapClient y SoapServer
 if(class_exists(SoapClient)){
     echo "<p>Existe la clase SoapClient</p>";
