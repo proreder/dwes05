@@ -1,7 +1,7 @@
 <?php
 
 //Carpeta raiz
-define('ROOTPATH', '/DWES04');
+define('ROOTPATH', '/DWES05');
 //Ruta a la carpeta donde está instalado SMARTY
 define('SMARTY_PATH', 'c:/xampp/smarty/libs');
 //Directorio donde se almacenarán las plantillas de smarty

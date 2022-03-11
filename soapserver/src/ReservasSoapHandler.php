@@ -17,26 +17,17 @@ class ReservasSoapHandler{
     }
     
     public function crearReserva($reserva){
-        $reserva= new class(){
-            public $user;
-            public $zona;
-            public $fecha;
-            public $tramo;
-        };
         
-        $reserva->tramo=new class(){
-            public $horaInincio;
-            public $horafin;
-        };
         return $resultado;
     }
     
-    public function eliminarReserva(){
+    public function eliminarReserva($datosIdReserva){
+        return $resultado;
     
     }
         
-    public function listarreserva(){
-        
+    public function listarreserva($fecha, $zona){
+        return $listaReservas;
     }
     
     
