@@ -1,5 +1,5 @@
 <?php
-
+//objetos de la clase
 $reserva= new class(){
             public $user;
             public $zona;
