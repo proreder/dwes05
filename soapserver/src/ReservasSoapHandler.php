@@ -16,7 +16,14 @@ class ReservasSoapHandler{
     //crea una reserva con el objeto $reserva pasado como argumento
     /**
      * 
-     * @param type $reserva
+     * @param type $reserva objeto de clase anonima:
+     *  
+     *       $reserva= new class(){
+     *       public $user;
+     *       public $zona;
+     *       public $fecha;
+     *       public $tramo;
+     *   };
      * @return type
      */
     public function crearReserva($reserva){
