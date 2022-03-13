@@ -13,7 +13,12 @@ class ReservasSoapHandler{
              _log('ERROR: No se ha podido establecer conexión a la base de datos');
         }
     }
-    
+    //crea una reserva con el objeto $reserva pasado como argumento
+    /**
+     * 
+     * @param type $reserva
+     * @return type
+     */
     public function crearReserva($reserva){
         //logs de los datos recibidos para crear una reserva
         _log ('Datos recibido 1:'.print_r($reserva, true));
