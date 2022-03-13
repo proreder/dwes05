@@ -1,22 +1,22 @@
 <?php
-require_once './soapserver/conf.php';
-require_once 'Conexion.php';
+
 class ReservasSoapHandler{
     private $PDOconect;
+    //patrones de fecha y hora
     
     public function __construct() {
         $this->PDOconect=connect();
         //si hay conexión
         if($this->PDOconect){
-            echo '<p>Conexión establecida con la base de datos</p>';
-//            _log('Conexión establecida con la base de datos');
+             _log('Conexión establecida con la base de datos');
         }else{
-            echo '<p>ERROR: No se ha podido establecer conexión a la base de datos</p>';
-//            _log('ERROR: No se ha podido establecer conexión a la base de datos');
+             _log('ERROR: No se ha podido establecer conexión a la base de datos');
         }
     }
     
     public function crearReserva($reserva){
+        //logs de los datos recibidos para crear una reserva
+        _log ('Datos recibido 1:'.print_r($reserva, true));
         
         return $resultado;
     }
