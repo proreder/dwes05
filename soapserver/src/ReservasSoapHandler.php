@@ -1,5 +1,6 @@
 <?php
 
+
 class ReservasSoapHandler{
     private $PDOconect;
     //patrones de fecha y hora
@@ -24,11 +25,25 @@ class ReservasSoapHandler{
      *       public $fecha;
      *       public $tramo;
      *   };
+     *    $tramo=new class(){
+     *       public $horaInicio;
+     *       public horaFin;
+     * 
      * @return type
      */
     public function crearReserva($reserva){
         //logs de los datos recibidos para crear una reserva
-        _log ('Datos recibido 1:'.print_r($reserva, true));
+        _log ('Datos recibidos:'.print_r($reserva, true));
+        $user=$reserva->user;
+        $zona=$reserva->zona;
+        $fecha=$reserva->fecha;
+        $horaInicio=$reserva->tramo->horaInicio;
+        $horaFin=$reserva->tramo->horaFin;
+        _log ('User: '.$user);
+        _log ('Zona: '.$zona);
+        _log ('Fecha: '.$fecha);
+        _log ('Hora de Inicio:'.$horaInicio);
+        _log ('Hora de Fin:'.$horaFin);
         
         return $resultado;
     }

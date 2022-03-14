@@ -15,7 +15,7 @@ $reserva->fecha='2022-03-01';
 $reserva->tramo= new class(){};
 $reserva->tramo->horaInicio="10:00";
 $reserva->tramo->horaFin="11:00";
-//$client->listarReservas('2022-03-01',1);
+$client->crearReserva($reserva);
 
 var_dump($reserva);
 

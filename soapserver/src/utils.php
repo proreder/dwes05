@@ -15,28 +15,23 @@ function readConfig(string $file, array $defaultConfig){
 }
 
 /**
- * Conexión a la base de datos convecinos
+ * Archivo de configuración para conectar con la base de datos usando PDO. 
+ * La información a almacenará será DSN, usuario y contraseña, y se almacenará 
+ * en las constantes: 
+ * DB_DSN, DB_USER, DB_PASSWD.
  */
-function connect($array) {
-    $driver=$array['DB_DRIVER'];
-    $host=$array['DB_HOST'];
-    $port=$array['DB_PORT'];
-    $dbname=$array['DB_SCHEMA'];
-    $usuario=$array['DB_USER'];
-    $password=$array['DB_PASSWORD'];
-    $pdo;
-    $dsn=$driver.":host=".$host.";dbname=".$dbname.";charset=utf8";
-    
-    $options = array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
-    try{
-        $pdo=new PDO($dsn, $usuario, $password, $options);
+function connect(){
+        try{
+            $connDB = new PDO(DB_DSN, DB_USER, DB_PASSWD);
+            $connDB -> setAttribute(PDO::ATTR_ERRMODE , PDO::ERRMODE_EXCEPTION);
+        }catch (PDOException $ex){
+            echo "<br>Error: ".$ex->getCode();
+            echo "<br>Error: ".$ex->getMessage();
+            return null;
+        }
+        //si hay error devolvemos el objeto que contiene la conexión con la tabla INCMOTIV
         
-        return $pdo;
-        
-    } catch (PDOException $e) {
-        
-        return 0;
-    }
+        return $connDB;
       
 }
 /**
