@@ -37,29 +37,30 @@
                 <legend>Formulario de reserva</legend>
                     <label for="zona_id">
                         ID de zona:
-                        <input type="text" name="zona_id" id="zona_id">
+                        <input type="text" name="zona_id" id="zona_id"/>*
                     </label> 
                     <label for="user_id">
                         ID de usuario:
-                        <input type="text" name="user_id" id="user_id">
+                        <input type="text" name="user_id" id="user_id"/>*
                     </label>    
-                    <label for="fecha_actual">
+                    <label for="fecha">
                         Fecha (dd-mm-aaaa):
-                        <input type="text" name="fecha_actual" id="fecha_actual">
+                        <input type="text" name="fecha" id="fecha"/>*
                     </label>
             </fieldset>
             <fieldset>
-                <label for="hora_inicio">
+                <label for="horaInicio">
                     Hora de inicio (hh:mm):
-                    <input type="text" name="hora_inicio" id="hora_inicio">
+                    <input type="text" name="horaInicio" id="horaInicio"/>*
                 </label>
-                <label for="nuevo_inicio">
+                <label for="horaFin">
                     Hora de fin (hh:mm):
-                    <input type="text" name="hora_fin" id="hora_fin">
+                    <input type="text" name="horaFin" id="horaFin"/>*
                 </label>
                 
             </fieldset>
-             <br>
+             <span class="rojo">* Campos obligatorios</span>
+             <br/><br/>
             <input type="submit" name="enviar" value="Enviar"/>
         </form>
         </div>

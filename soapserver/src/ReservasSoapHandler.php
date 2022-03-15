@@ -1,11 +1,11 @@
 <?php
 
 require_once 'utils.php';
-require_once 'Peticion';
+require_once 'Conexion.php';
 
 class ReservasSoapHandler{
     private $PDOconect;
-   
+    private $resultado;
     //patrones de fecha y hora
     
     public function __construct() {
@@ -14,6 +14,7 @@ class ReservasSoapHandler{
         if($this->PDOconect){
              _log('Conexión establecida con la base de datos');
         }else{
+            $this->resultado=-7;
              _log('ERROR: No se ha podido establecer conexión a la base de datos');
         }
     }
@@ -35,8 +36,8 @@ class ReservasSoapHandler{
      * @return $resultado int con el número de error encontrado
      */
     public function crearReserva($reserva){
-        $error=false;
-        $p=new Peticion();
+        $this->resultado=false;
+        
         //logs de los datos recibidos para crear una reserva
         _log ('Datos recibidos:'.print_r($reserva, true));
         $_user=$reserva->user;
@@ -48,47 +49,51 @@ class ReservasSoapHandler{
         //verificamo que los datos son válidos
         //verificamos zona es numérico y positivo
     //***zona**//
-    if(is_numeric($_zona) && $_zona=intval($zona)>0){
+    if(is_numeric($_zona) && $_zona=intval($_zona)>0){
         $zona=$_zona;
     }else{
-        $error=-6;
+        $this->resultado=-6;
     }
     //***User**//
-    if((is_numeric($_user) && $_user=intval($_user)>0) && !$error){
+    if((is_numeric($_user) && $_user=intval($_user)>0)){
         $user=$_user;
     }else{
-        $error=-5;
+        $this->resultado=-5;
     }
     //**fecha**
-     $date=$p->getString('fecha', true);
-     $_fecha=validaDate($date, 'Y-m-d');
+     $_fecha=validaDate($_date, 'Y-m-d');
      
      if(!$_fecha){
-         $error=-2;
+         $error=-3;
      }else{
          $fecha=$_fecha;
      }
      //**horaInicio**
-     $_horaInicio=$p->getString('horaInicio', true);
-     $horaInicio=$p->validaDate($_horaInicio, 'H:i');
-     
+     $horaInicio=validaDate($_horaInicio, 'H:i');
      if(!$horaInicio){
-         $errores[]="La hora de inicio no tiene el formato correcto";
+         $this->resultado=-4;
      }
      //**horaFin**
-     $_horaFin=$p->getString('horaFin', true);
-     $horaFin=$p->validaDate($_horaFin, 'H:i');
+     
+     $horaFin=validaDate($_horaFin, 'H:i');
      if(!$horaFin){
-         $errores[]="La hora de inicio no tiene el formato correcto";
+         $this->resultado=-4;
      }
-        
+     
+     //Se compara los tiempos
+     if(!compararTiempos($horaInicio, $horaFin)){
+         $this->resultado=-3;
+     }
+    
         _log ('User: '.$user);
         _log ('Zona: '.$zona);
         _log ('Fecha: '.$fecha);
         _log ('Hora de Inicio:'.$horaInicio);
         _log ('Hora de Fin:'.$horaFin);
-        
-        return $resultado;
+    if(!$this->resultado){
+        $this->resultado=insertarReserva($this->PDOconect, $fecha, $horaInicio, $horaFin, $zona, $user);
+    }  
+        return $this->resultado;
     }
     
     public function eliminarReserva($datosIdReserva){

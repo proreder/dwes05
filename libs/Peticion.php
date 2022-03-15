@@ -272,7 +272,7 @@ function compararTiempos($hora_inicio, $hora_fin){
  * @return string fecha en formato yyyy-mm-dd
  */
 function fechaAMySQL($valor){
-    $array=explode('/', $valor);
+    $array=explode('-', $valor);
     list($d,$m,$a)=$array;
     return $a.'-'.$m.'-'.$d;
 }

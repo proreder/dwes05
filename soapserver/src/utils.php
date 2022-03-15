@@ -20,20 +20,20 @@ function readConfig(string $file, array $defaultConfig){
  * en las constantes: 
  * DB_DSN, DB_USER, DB_PASSWD.
  */
-function connect(){
-        try{
-            $connDB = new PDO(DB_DSN, DB_USER, DB_PASSWD);
-            $connDB -> setAttribute(PDO::ATTR_ERRMODE , PDO::ERRMODE_EXCEPTION);
-        }catch (PDOException $ex){
-            echo "<br>Error: ".$ex->getCode();
-            echo "<br>Error: ".$ex->getMessage();
-            return null;
-        }
-        //si hay error devolvemos el objeto que contiene la conexión con la tabla INCMOTIV
-        
-        return $connDB;
-      
-}
+//function connect(){
+//        try{
+//            $connDB = new PDO(DB_DSN, DB_USER, DB_PASSWD);
+//            $connDB -> setAttribute(PDO::ATTR_ERRMODE , PDO::ERRMODE_EXCEPTION);
+//        }catch (PDOException $ex){
+//            echo "<br>Error: ".$ex->getCode();
+//            echo "<br>Error: ".$ex->getMessage();
+//            return null;
+//        }
+//        //si hay error devolvemos el objeto que contiene la conexión con la tabla INCMOTIV
+//        
+//        return $connDB;
+//      
+//}
 /**
  * 
  * @param PDO $conn  Objeto que apunta a la conexión con la tabla MySQL
@@ -196,8 +196,8 @@ function obtenerReservas(PDO $conn){
  * @param int $zonaID
  * @param int $userID
  * @return -1 si se pisa el horario
- *         ok si se ha insertado el registro con éxito 
- *         error si el registro no se ha podido insertar   
+ *         1 si se ha insertado el registro con éxito 
+ *         -2 si el registro no se ha podido insertar   
  */
 function insertarReserva(PDO $conn, $fecha, $inicio, $fin, $zonaID, $userID){
    $resultado=false;
@@ -208,7 +208,7 @@ function insertarReserva(PDO $conn, $fecha, $inicio, $fin, $zonaID, $userID){
            . "(inicio <= :hora_inicio AND fin > :hora_inicio) OR"
            . " fin >:hora_inicio AND inicio < :hora_fin);";
            
-   $sql_insert="INSERT INTO RESERVAS (fecha, inicio, fin, zona_id, user_id) VALUES (:fecha,:hora_inicio,:hora_fin, :zona_id, :user_id)";
+   $sql_insert="INSERT INTO reservas (fecha, inicio, fin, zona_id, user_id) VALUES (:fecha,:hora_inicio,:hora_fin, :zona_id, :user_id)";
    try{
        //iniciamos transacción, desactivando 'autocommit'
        $conn->beginTransaction();
@@ -234,16 +234,16 @@ function insertarReserva(PDO $conn, $fecha, $inicio, $fin, $zonaID, $userID){
            $stmt->bindValue('user_id', $userID);
            $stmt->execute();
            if($conn->commit()){
-               $resultado=$stmt->rowCount();
+               $resultado=1;
            }else{
-               $resultado='error';
+               $resultado=-2;
            }
         }else{
-           $resultado=-1;
+           $resultado=-1;  //hay solapamiento
        }
       
    } catch (PDOException $ex) {
-       echo '<br>Error en la consulta';
+       _log('<br>Error en la consulta');
        $ex->getMessage();
        $conn->rollBack();
        $stmt->debugDumpParams();
@@ -337,4 +337,17 @@ function validaDate($date, $format = 'Y-m-d H:i:s')
     $d = DateTime::createFromFormat($format, $date);
     $valor= $d && $d->format($format) == $date;
     return $valor== true ? $date : false;
+}
+
+ 
+/**
+ * 
+ * @param string $hora_inicio cadena con la hora del inicio
+ * @param string $hora_fin cadena con la hora del inicio
+ * @return bool devuelve true si la hora final es mayor que la hora fin
+ */
+function compararTiempos($hora_inicio, $hora_fin){
+    $horaInicio=strtotime($hora_inicio);
+    $horaFin=strtotime($hora_fin);
+    return $result = $horaFin > $horaInicio ? true : false;    
 }
