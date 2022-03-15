@@ -32,27 +32,21 @@
                 </ul>
         {/if}
         <div class="form">
-         <form action="ejercicio4.php" method="post">
+         <form action="ejercicio5.php" method="post">
             <fieldset><!-- comment -->
-                <legend>Formulario de reserva</legend>
+                <legend>Formulario de eliminación de reserva</legend>
                     <label for="zona_id">
                         ID de zona:
                         <input type="text" name="zona_id" id="zona_id"/>*
                     </label> 
-                    <label for="user_id">
-                        ID de usuario:
-                        <input type="text" name="user_id" id="user_id"/>*
-                    </label>    
                     <label for="fecha">
                         Fecha (dd-mm-aaaa):
                         <input type="text" name="fecha" id="fecha"/>*
                     </label>
-            </fieldset>
-            <fieldset>
-                <label for="horaInicio">
-                    Hora de inicio (hh:mm):
-                    <input type="text" name="horaInicio" id="horaInicio"/>*
-                </label>
+                    <label for="horaInicio">
+                        Hora de inicio (hh:mm):
+                        <input type="text" name="horaInicio" id="horaInicio"/>*
+                    </label>
                 <label for="horaFin">
                     Hora de fin (hh:mm):
                     <input type="text" name="horaFin" id="horaFin"/>*
@@ -66,3 +60,4 @@
         </div>
     </body>
 </html>
+

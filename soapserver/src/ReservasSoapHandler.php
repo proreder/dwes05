@@ -49,13 +49,13 @@ class ReservasSoapHandler{
         //verificamo que los datos son válidos
         //verificamos zona es numérico y positivo
     //***zona**//
-    if(is_numeric($_zona) && $_zona=intval($_zona)>0){
+    if(is_numeric($_zona) && intval($_zona)>0){
         $zona=$_zona;
     }else{
         $this->resultado=-6;
     }
     //***User**//
-    if((is_numeric($_user) && $_user=intval($_user)>0)){
+    if((is_numeric($_user) && intval($_user)>0)){
         $user=$_user;
     }else{
         $this->resultado=-5;

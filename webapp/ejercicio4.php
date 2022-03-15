@@ -24,6 +24,7 @@ $smarty->cache_dir = CACHE_DIR;
 $p= new Peticion();
 //variables
 $errores=[];
+$resultado=0;
 //verficamos que se han recibido datos del formulario
 if($p->has('enviar')){
     echo "formulario recibido";
@@ -102,7 +103,22 @@ if($p->has('enviar')){
           break;
         case -2:
           $errores[]="ERROR: No se ha podido guardar el registro";
-          break; 
+          break;
+        case -3:
+          $errores[]="La hora de inicio es superior a la hora fin";
+          break;
+        case -4:
+          $errores[]="La hora de inicio o fin son incorrectas";
+          break;
+        case -5:
+          $errores[]="ERROR: El ID de usuario es incorrecto";
+          break;
+        case -6:
+          $errores[]="ERROR: El ID de la zona es incorrecta";
+          break;
+        case -7:
+          $errores[]="ERROR: No se puede acceder a la base de datos";
+          break;
     }
     if(!empty($errores)){
         $smarty->assign('errores', $errores);
@@ -110,8 +126,8 @@ if($p->has('enviar')){
         $smarty->display('../templates/ejercicio4.tpl');
     }else{
         $smarty->assign('resultado', $result);
-        $smarty->assign('titulo','Realizar una reserva');
-        $smarty->display('../templates/ejercicio4.tpl');
+        $smarty->assign('titulo','Resultado de la reserva');
+        $smarty->display('../templates/ejercicio4_resultado.tpl');
     }
     
 
