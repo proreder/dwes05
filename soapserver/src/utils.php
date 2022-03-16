@@ -263,6 +263,7 @@ function insertarReserva(PDO $conn, $fecha, $inicio, $fin, $zonaID, $userID){
  */
 function eliminarReserva(PDO $conn, $zona, $fecha, $inicio){
     $resultado=false;
+    $result=0;
     $sql_borrado="DELETE FROM reservas WHERE zona_id = :zona AND  fecha = :fecha AND inicio= :inicio;";
     try{
         $stmt=$conn->prepare($sql_borrado);
@@ -271,15 +272,18 @@ function eliminarReserva(PDO $conn, $zona, $fecha, $inicio){
         $stmt->bindValue('fecha', $fecha);
         $stmt->bindValue('inicio', $inicio);
         $stmt->execute();
-        $resultado=$stmt->rowCount();
+        $result=$stmt->rowCount();
         
+        if ($result==0){
+            $result=-1;
+        }
     } catch (PDOException $ex) {
-        echo '<br>Error en el borrado';
+        $resultado=-2;
     }
     
     $stmt=null;
     $conn=null;
-    return $resultado;
+    return $result;
 }
 
 /**

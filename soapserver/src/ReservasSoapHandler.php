@@ -18,12 +18,12 @@ class ReservasSoapHandler{
              _log('ERROR: No se ha podido establecer conexión a la base de datos');
         }
     }
-    //crea una reserva con el objeto $reserva pasado como argumento
+    //crea una reserva con el objeto datosReserva pasado como argumento
     /**
      * 
-     * @param type $reserva objeto de clase anonima:
+     * @param type datosReserva objeto de clase anonima:
      *  
-     *       $reserva= new class(){
+     *       datosReserva= new class(){
      *       public $user;
      *       public $zona;
      *       public $fecha;
@@ -35,16 +35,16 @@ class ReservasSoapHandler{
      * 
      * @return $resultado int con el número de error encontrado
      */
-    public function crearReserva($reserva){
+    public function crearReserva($datosReserva){
         $this->resultado=false;
         
         //logs de los datos recibidos para crear una reserva
-        _log ('Datos recibidos:'.print_r($reserva, true));
-        $_user=$reserva->user;
-        $_zona=$reserva->zona;
-        $_date=$reserva->fecha;
-        $_horaInicio=$reserva->tramo->horaInicio;
-        $_horaFin=$reserva->tramo->horaFin;
+        _log ('Datos recibidos:'.print_r($datosReserva, true));
+        $_user=$datosReserva->user;
+        $_zona=$datosReserva->zona;
+        $_date=$datosReserva->fecha;
+        $_horaInicio=$datosReserva->tramo->horaInicio;
+        $_horaFin=$datosReserva->tramo->horaFin;
         
         //verificamo que los datos son válidos
         //verificamos zona es numérico y positivo
@@ -88,20 +88,67 @@ class ReservasSoapHandler{
         _log ('User: '.$user);
         _log ('Zona: '.$zona);
         _log ('Fecha: '.$fecha);
-        _log ('Hora de Inicio:'.$horaInicio);
+        _log ('Hora de Inicio:'.$horainicio);
         _log ('Hora de Fin:'.$horaFin);
     if(!$this->resultado){
-        $this->resultado=insertarReserva($this->PDOconect, $fecha, $horaInicio, $horaFin, $zona, $user);
+        $this->resultado=insertarReserva($this->PDOconect, $fecha, $horainicio, $horaFin, $zona, $user);
     }  
         return $this->resultado;
     }
     
-    public function eliminarReserva($datosIdReserva){
-        return $resultado;
+    public function eliminarReserva($datosBorrarReserva){
+        
+        $this->resultado=false;
+        
+        //logs de los datos recibidos para crear una reserva
+        _log ('Datos recibidos:'.print_r($datosBorrarReserva, true));
+        $_zona=$datosBorrarReserva->zona;
+        $_date=$datosBorrarReserva->fecha;
+        $_horaInicio=$datosBorrarReserva->horaInicio;
+        
+        
+        //verificamo que los datos son válidos
+        //verificamos zona es numérico y positivo
+        //***zona**//
+        if(is_numeric($_zona) && intval($_zona)>0){
+            $zona=$_zona;
+        }else{
+            $this->resultado=-4;
+        }
+
+        //**fecha**
+         $_fecha=validaDate($_date, 'Y-m-d');
+
+         if(!$_fecha){
+             $error=-3;
+         }else{
+             $fecha=$_fecha;
+         }
+         //**horaInicio**
+         $horaInicio=validaDate($_horaInicio, 'H:i');
+         if(!$horaInicio){
+             $this->resultado=-3;
+         }else{
+             $horainicio=date("H:i:s",strtotime($horaInicio));
+         log ("Hora_inicio: ".$horainicio,true);
+//            $horaInicio=$horaInicio.":00";
+//             $horainicio=date("H:i",strtotime($horaInicio));
+//              echo "Hora: ".$horainicio;
+         }
+
+             _log ('Zona: '.$zona);
+            _log ('Fecha: '.$fecha);
+            _log ('Hora de Inicio:'.$horaInicio);
+
+        if(!$this->resultado){
+            $this->resultado=eliminarReserva($this->PDOconect, $zona, $fecha, $horaInicio);
+        }  
+        return $this->resultado;
+    
     
     }
         
-    public function listarreserva($fecha, $zona){
+    public function listarReserva($fecha, $zona){
         return $listaReservas;
     }
     

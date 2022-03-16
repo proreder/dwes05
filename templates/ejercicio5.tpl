@@ -47,10 +47,6 @@
                         Hora de inicio (hh:mm):
                         <input type="text" name="horaInicio" id="horaInicio"/>*
                     </label>
-                <label for="horaFin">
-                    Hora de fin (hh:mm):
-                    <input type="text" name="horaFin" id="horaFin"/>*
-                </label>
                 
             </fieldset>
              <span class="rojo">* Campos obligatorios</span>
