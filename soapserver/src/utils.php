@@ -92,7 +92,37 @@ function buscarReserva(PDO $conn, $array){
        echo $ex->getMessage(); 
        $resultado=false;
     }
-    //cerramos conexione
+    //cerramos conexiones
+    $ps=null;
+    $conn=null;
+    return $resultado;
+}
+/**
+ * listar reservas por feccha y zona
+ * @param PDO $conn objeto que apunta a la base de datos
+ * @param array $datos contienes los tramos de ese dia con esa zona
+ * @return int  1 si se ha encontrado el registro o false si no hay resultado
+ */
+function listarReserva(PDO $conn, $array){
+    //pasamos los datos almacenados en el array  a variables
+    list($_fecha, $_zonaid)=$array;
+      
+    $resultado="";
+    $buscar_sql="SELECT inicio, fin, user_id FROM reservas WHERE fecha = :fecha AND zona_id = :zonaid;";
+    
+    try{
+        $ps=$conn->prepare($buscar_sql);
+        $ps->bindValue('fecha', $_fecha);
+        $ps->bindValue('zonaid', $_zonaid);
+        $ps->execute();
+        $resultado=$ps->fetch(PDO::FETCH_ASSOC);
+        
+    } catch (PDOException $ex) {
+       //Error en la consulta.//
+       echo $ex->getMessage(); 
+       $resultado=false;
+    }
+    //cerramos conexiones
     $ps=null;
     $conn=null;
     return $resultado;
