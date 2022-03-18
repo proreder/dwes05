@@ -153,9 +153,9 @@ class ReservasSoapHandler{
      * @param type $zona
      * @return type
      */    
-    public function listarReserva($_fecha, $_zona){
+    public function listarReservas($_fecha, $_zona){
         $this->resultado=false;
-        
+        $listaReservas=[];
         //logs de los datos recibidos para crear una reserva
         _log ('Datos fecha:'.$_fecha, true);
         _log('Datos zona: ', $_zona, true);
@@ -166,25 +166,32 @@ class ReservasSoapHandler{
         if(is_numeric($_zona) && intval($_zona)>0){
             $zona=$_zona;
         }else{
-            $this->resultado=-4;
+            $this->resultado=-2;
         }
 
         //**fecha**
          $fecha=validaDate($_fecha, 'Y-m-d');
 
          if(!$fecha){
-             $error=-4;
+             
+             $this->resultado=-3;
          }else{
              $fecha=$_fecha;
          }
          _log ('Zona: '.$zona);
-         _log ('Fecha: '.$fecha);
+         _log ('Fecha validate: '.$fecha);
+         _log('Error: '.$this->resultado);
            
 
         if(!$this->resultado){
-            $this->resultado=listarReserva($this->PDOconect, $zona, $fecha);
+           // $listaReservas=listarReserva($this->PDOconect, $fecha,$zona);
         }  
-        return $this->resultado;
+        $listaReservas=new class(){};
+    $listaReservas->fecha=$fecha;
+    $listaReservas->zona=$zona;
+    $listaReservas->tramo=new class(){};
+    $listaReservas->tramo->inicio="";
+    $listaReservas->tramo->fin="";
     
         return $listaReservas;
     }
