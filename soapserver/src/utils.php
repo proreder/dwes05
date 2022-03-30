@@ -1,4 +1,5 @@
 <?php
+require_once 'logger.php';
 /**
  * Esta función retornará un array asociativo con la configuración del archivo .ini 
  * combinada con la configuración por defecto, teniendo preferencia la configuración 
@@ -103,29 +104,36 @@ function buscarReserva(PDO $conn, $array){
  * @param array $datos contienes los tramos de ese dia con esa zona
  * @return int  1 si se ha encontrado el registro o false si no hay resultado
  */
-function listarReserva(PDO $conn, $array){
-    //pasamos los datos almacenados en el array  a variables
-    list($_fecha, $_zonaid)=$array;
-      
-    $resultado="";
+function listarReserva(PDO $conn, $_fecha, $_zona){
+    //objeto clase anónima
+    $listaTramos=new class(){};
+    
     $buscar_sql="SELECT inicio, fin, user_id FROM reservas WHERE fecha = :fecha AND zona_id = :zonaid;";
     
     try{
         $ps=$conn->prepare($buscar_sql);
         $ps->bindValue('fecha', $_fecha);
-        $ps->bindValue('zonaid', $_zonaid);
+        $ps->bindValue('zonaid', $_zona);
         $ps->execute();
-        $resultado=$ps->fetch(PDO::FETCH_ASSOC);
+//        $resultado=$ps->fetchAll(PDO::FETCH_ASSOC);
+        while($resultado=$ps->fetch(PDO::FETCH_ASSOC)){
+            _log('bucle $resultado: '.var_dump($resultado),true);
+            $tramo=new class(){};
+            $tramo->horaInicio=$resultado['inicio'];
+            $tramo->horaFin=$resultado['fin'];
+            $tramo->user=$resultado['user_id'];
+            $listaTramos->tramo[]=$tramo;
+        }
         
     } catch (PDOException $ex) {
        //Error en la consulta.//
-       echo $ex->getMessage(); 
-       $resultado=false;
+//       $reservas[]=$tramo;
+      
     }
     //cerramos conexiones
     $ps=null;
     $conn=null;
-    return $resultado;
+    return $listaTramos;
 }
 
 function modificarReserva(PDO $conn, $array){

@@ -3,21 +3,27 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/dwes05/soapserver/tarea05.wsdl</file>
+            <file>file:/C:/xampp/htdocs/DWES05/webapp/ejercicio5.php</file>
+            <file>file:/C:/xampp/htdocs/DWES05/templates/ejercicio5.tpl</file>
             <file>file:/C:/xampp/htdocs/DWES05/webapp/ejercicio7.php</file>
-            <file>file:/C:/xampp/htdocs/dwes05/soapserver/conf/conf.php</file>
+            <file>file:/C:/xampp/htdocs/DWES05/templates/ejercicio6_resultado.tpl</file>
+            <file>file:/C:/xampp/htdocs/DWES05/soapserver/verlog.php</file>
+            <file>file:/C:/xampp/htdocs/DWES05/templates/ejercicio6.tpl</file>
             <file>file:/C:/xampp/htdocs/DWES05/ejercicio1.php</file>
-            <file>file:/C:/xampp/htdocs/dwes05/soapserver/src/utils.php</file>
+            <file>file:/C:/xampp/htdocs/DWES05/templates/ejercicio4_resultado.tpl</file>
             <file>file:/C:/xampp/htdocs/DWES05/webapp/ejercicio4.php</file>
-            <file>file:/C:/xampp/htdocs/dwes05/soapserver/src/Conexion.php</file>
-            <file>file:/C:/xampp/htdocs/dwes05/soapserver/index.php</file>
+            <file>file:/C:/xampp/htdocs/DWES05/webapp/libs.php</file>
+            <file>file:/C:/xampp/htdocs/DWES05/webapp/wsdluri.php</file>
+            <file>file:/C:/xampp/htdocs/DWES05/templates/ejercicio5_resultado.tpl</file>
             <file>file:/C:/xampp/htdocs/DWES05/webapp/ejercicio6.php</file>
-            <file>file:/C:/xampp/htdocs/dwes05/soapserver/src/ReservasSoapHandler.php</file>
             <file>file:/C:/xampp/htdocs/DWES05/templates/ejercicio4.tpl</file>
+            <file>file:/C:/xampp/htdocs/DWES05/soapserver/logger.php</file>
+            <file>file:/C:/xampp/htdocs/DWES05/soapserver/index.php</file>
             <file>file:/C:/xampp/htdocs/DWES05/webapp/prueba.php</file>
-            <file>file:/C:/xampp/htdocs/DWES05/libs/Peticion.php</file>
-            <file>file:/C:/xampp/htdocs/dwes05/soapserver/logger.php</file>
-            <file>file:/C:/xampp/htdocs/dwes05/soapserver/verlog.php</file>
+            <file>file:/C:/xampp/htdocs/DWES05/soapserver/src/ReservasSoapHandler.php</file>
+            <file>file:/C:/xampp/htdocs/DWES05/soapserver/tarea05.wsdl</file>
+            <file>file:/C:/xampp/htdocs/DWES05/soapserver/src/utils.php</file>
+            <file>file:/C:/xampp/htdocs/DWES05/templates/ejercicio7.listado.form.tpl</file>
         </group>
     </open-files>
 </project-private>

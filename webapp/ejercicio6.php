@@ -29,9 +29,7 @@ $errores=[];
 $resultado=0;
 //verficamos que se han recibido datos del formulario
 if($p->has('enviar')){
-    echo "formulario recibido";
-    var_dump($_POST);
-    
+  
     //verificamos que todos los csmpos tengan datosy sean correctos
     //***zona**//
     try{
@@ -57,39 +55,44 @@ if($p->has('enviar')){
         //creamos las instacia de SoapServer y le pasamos el descriptor WDSL
         $client=new SoapClient($wsdluri, array('trace' => 1));
         //si no hay errores se crea la clase anónima $idreserva
-        $idreserva=new class{};
-        $idreserva->zona=$zona;
-        $fecha;
-        
-        $resultado=$client->listarReserva($fecha, $zona);
-        echo "<br>Resultado: ".print_r($resultado);
+       try{ 
+//             $zona="a";
+//             $fecha="2020-02-32";
+             $listaReservas=$client->listarReservas($fecha, $zona);
+             var_dump($listaReservas);
+             echo "<br>Es un array.".is_array($listaReservas);
+              
+              if(!isset($listaReservas->reservas->tramo)){
+                     $errores[]="No hay tramos a mostrar";
+           
+            }
+             
+
+                       
+       } catch (SoapFault $ex) {
+           $errores[]="[ERROR] Error al conectar al servicio web."; 
+           echo "<br>__getLastRequest(): ".$client->__getLastRequest();
+           echo "<br>__getLastResponse(): ".$client->__getLastResponse();
+        }
+       
+      
+
      }
     
 }else{
     $errores[]='Formulario no recibido';
     
 }
-    //procesamos los resultados devueltos por ReservasSoapHandler
-    switch($resultado){
-        case  1:
-          $result="Tramos encontrados.";
-          break;
-        case -1:
-          $errores[]="No hay reservas en los tramos indicados";
-          break;
-        case -2:
-          $errores[]="ERROR: No se puede acceder a la base de datos";
-          break;
-       
-        
-    }
-    if(!empty($errores)){
-        $smarty->assign('errores', $errores);
-        $smarty->assign('titulo','Listar reservas');
-        $smarty->display('../templates/ejercicio6.tpl');
-    }else{
-        $smarty->assign('resultado', $result);
-        $smarty->assign('titulo','Listado de las reservas');
-        $smarty->display('../templates/ejercicio6_resultado.tpl');
-    }
+    
+if(!empty($errores)){
+    $smarty->assign('errores', $errores);
+    $smarty->assign('titulo','Listar reservas');
+    $smarty->display('../templates/ejercicio6.tpl');
+}else{
+
+    $smarty->assign('reservas', $listaReservas);
+//       $smarty->assign('tramos', $tramos);
+    $smarty->assign('titulo','Listado de las reservas');
+    $smarty->display('../templates/ejercicio6_resultado.tpl');
+}
 

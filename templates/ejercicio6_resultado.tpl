@@ -18,41 +18,103 @@
             .form{
                 width: 400px;
             }
+            
+            
+            .color_cabecera {
+                            background-color : #009879;
+                            color : white;
+                            
+                         }
+            .tabla       {
+                            border-collapse: collapse;
+                            border-width: 1px;
+                            font-size: 1em;
+                            border-color: black;
+                            border-style: inset;
+                          }
+            table td{
+                padding: 5px;
+                border-style: inset;
+                border-color: black;
+                border-width: 1px;
+            }
+            table th{
+                
+                border-style: inset;
+                
+                border-width: 1px;
+            }
+                        
+            .id {
+                width: 2em;
+                height: 2em;
+                }
+            .nombre{
+                width: 10em;
+            }
+            .des{
+                width: 12em;
+            }
+            .emp{
+                width: 16em;
+            }
+            .man{
+                width: 30em;
+                margin-right: 20px;
+                margin-left: 20px;
+            }
+            .tel{
+                width: 10em;
+            }
+            .ope{
+                width: 6em;
+            }
+            input{
+                font-size: .75em;
+                margin: 3px;
+                cursor: pointer;
+            }
+           
         </style>
     </head>
 
     <body>
         <h3>{$titulo}</h3>
-        {if !empty($errores)}
-            <h3 class="rojo">Errores encontrados</h3>
-                <ul>
-                    {foreach from=$errores item=$error}
-                        <li class="rojo">{$error}</li>
-                    {/foreach}
-                </ul>
-        {/if}
+       
         <div class="form">
-         <form action="ejercicio5.php" method="post">
-            <fieldset><!-- comment -->
-                <legend>Formulario de eliminación de reserva</legend>
-                    <label for="zona_id">
-                        ID de zona:
-                        <input type="text" name="zona_id" id="zona_id"/>*
-                    </label> 
-                    <label for="fecha">
-                        Fecha (dd-mm-aaaa):
-                        <input type="text" name="fecha" id="fecha"/>*
-                    </label>
-                    <label for="horaInicio">
-                        Hora de inicio (hh:mm):
-                        <input type="text" name="horaInicio" id="horaInicio"/>*
-                    </label>
-                
-            </fieldset>
-             <span class="rojo">* Campos obligatorios</span>
-             <br/><br/>
-            <input type="submit" name="enviar" value="Enviar"/>
-        </form>
+         {*print_r($reservas)*}  
+            <table class="tabla">
+                    <tbody>
+                            <tr class="color_cabecera">
+                                <td colspan="3"><span class="man"><b>Fecha:</b> {$reservas->fecha}</span><span class="man"><b>Zona:</b> {$reservas->zona}</span</td>
+                            </tr>
+                            <tr><td>Hora de inicio</td><td>Hora fin</td><td>Usuario</td></tr>
+                                {if empty($errores)}
+                                    {foreach $reservas->reservas->tramo as $tramo}
+
+                                        <tr style="background: {cycle values='lightblue,azure'}">
+                                            <td>{$tramo->horaInicio}</td>
+                                            <td>{$tramo->horaFin}</td>
+                                            <td>{$tramo->user}</td>
+
+
+                                        </tr>
+                                        {foreachelse}  
+                                    {/foreach}
+                                {/if}
+                            
+                    </tbody>
+            </table>
+            {if !empty($errores)}
+            
+            <h3>Errores encontrados:</h3>
+            <ul>
+               {foreach from=$errores item=$error}
+                   <li>{$error}</li>
+                {/foreach}
+            </ul>
+        {/if}                
+          <a href="ejercicio6.php">Volver</a>                
         </div>
     </body>
 </html>

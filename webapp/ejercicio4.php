@@ -21,14 +21,14 @@ $smarty->compile_dir = TEMPLATE_C_DIR;
 $smarty->cache_dir = CACHE_DIR;
 
 //instaciamos la clase Peticion
-$p= new Peticion();
+$p=new Peticion();
 //variables
 $errores=[];
 $resultado=0;
 //verficamos que se han recibido datos del formulario
 if($p->has('enviar')){
-    echo "formulario recibido";
-    var_dump($_POST);
+//    echo "formulario recibido";
+//    var_dump($_POST);
     
     //verificamos que todos los csmpos tengan datosy sean correctos
     //***zona**//
@@ -85,6 +85,8 @@ if($p->has('enviar')){
         $reserva->tramo= new class(){};
         $reserva->tramo->horaInicio=$horaInicio;
         $reserva->tramo->horaFin=$horaFin;
+        $reserva->tramo->user="";
+        echo "reserva: ".print_r($reserva,true);
         $resultado=$client->crearReserva($reserva);
         echo "<br>Resultado: ".$resultado;
      }
@@ -125,7 +127,7 @@ if($p->has('enviar')){
         $smarty->assign('titulo','Realizar una reserva');
         $smarty->display('../templates/ejercicio4.tpl');
     }else{
-        $smarty->assign('resultado', $result);
+        $smarty->assign('resultado', $resultado);
         $smarty->assign('titulo','Resultado de la reserva');
         $smarty->display('../templates/ejercicio4_resultado.tpl');
     }

@@ -18,6 +18,7 @@
             <xsd:sequence>
                 <xsd:element name="horaInicio" type="xsd:time"/>
                 <xsd:element name="horaFin" type="xsd:time"/>
+                <xsd:element name="user" type="xsd:int"/>
             </xsd:sequence>
         </xsd:complexType>
         
@@ -73,6 +74,12 @@
     <part name="listaReservas" type="dwes05:listaReservas" />
 </message>
 
+<message name="datosModificarReservas">
+    <part name="datosIdReserva" type="dwes05:idreserva" />
+    <part name="tramos" type="dwes05:tramo" />
+</message>
+
+
 <!-- Definimos el conjunto de operaciones posibles -->
 <portType name="reservasOPs">
     <operation name="crearReserva">
@@ -86,6 +93,11 @@
     <operation name="listarReservas">
         <input message="dwes05:datosListarReservas"/>
         <output message="dwes05:listaReservasMsg"/>
+    </operation>
+    <!--Ejercicio7 modificarReserva -->
+    <operation name="modificarReservas">
+        <input message="dwes05:datosModificarReservas"/>
+        <output message="dwes05:resultado"/>
     </operation>
 </portType>
 
@@ -119,6 +131,16 @@
             <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://localhost/dwes05/tarea" />
         </output>
     </operation>
+    <operation name="modificarReservas">
+        <soap:operation soapAction="http://localhost/dwes05/soapserver/index.php?modificarReservas"/>
+        <input> 
+            <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://localhost/dwes05/tarea" />
+        </input>
+        <output>
+            <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://localhost/dwes05/tarea" />
+        </output>
+    </operation>
+    <!--Ejercicio7 modificarReserva -->
 </binding>
 
 <!-- Definimos el servicio -->
