@@ -32,7 +32,7 @@
                 </ul>
         {/if}
         <div class="form">
-         <form action="ejercicio6.php" method="post">
+         <form action="ejercicio7.php" method="post">
             <fieldset><!-- comment -->
                 <legend>Formulario de listados de reserva</legend>
                     <label for="zona_id">
@@ -43,7 +43,18 @@
                         Fecha (dd-mm-aaaa):
                         <input type="text" name="fecha" id="fecha"/>*
                     </label>
-                   
+                    <label for="horaInicio">
+                        Hora de inicio (hh:mm):
+                        <input type="text" name="horaInicio" id="horaInicio"/>*
+                    </label>
+                <label for="nuevoInicio">
+                        Hora nueva de inicio (hh:mm):
+                        <input type="text" name="nuevoInicio" id="nuevoInicio"/>*
+                    </label>
+                <label for="nuevoFin">
+                        Hora nueva final (hh:mm):
+                        <input type="text" name="nuevoFin" id="nuevoFin"/>*
+                    </label>
             </fieldset>
              <span class="rojo">* Campos obligatorios</span>
              <br/><br/>
