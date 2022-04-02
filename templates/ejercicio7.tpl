@@ -16,7 +16,7 @@
                 color: green;
             }
             .form{
-                width: 400px;
+                width: 450px;
             }
         </style>
     </head>

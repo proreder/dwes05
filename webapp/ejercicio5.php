@@ -32,7 +32,7 @@ if($p->has('enviar')){
     echo "formulario recibido";
     var_dump($_POST);
     
-    //verificamos que todos los csmpos tengan datosy sean correctos
+    //verificamos que todos los campos tengan datos y sean correctos
     //***zona**//
     try{
         $zona=$p->getInt('zona_id', true);

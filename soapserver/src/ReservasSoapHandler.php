@@ -248,4 +248,82 @@ class ReservasSoapHandler{
     }
     
     
+    /**
+     * En esta operación deben contemplarse 6 escenarios posibles:
+     *	Que el servicio web no pueda ser accesible por error interno (por ejemplo: base de datos caída).
+     *	Que el servicio web responda que no se ha podido modificar la reserva porque la fecha no es posible (no puede existir).
+     *	Que el servicio web responda que no se ha podido modificar la reserva porque la reserva a modificar no existe.
+     * 	Que el servicio web responda que no se ha podido modificar la reserva porque el horario no es posible o la hora de inicio/fin son incorrectas.
+     * 	Que el servicio web responda que no se ha podido modificar la reserva porque hay solapamiento con otra reserva.
+     *	Que el servicio web responda que se ha modificado la reserva sin problemas.
+     *
+     */
+    public function modificarReservas($idReservas, $tramo){
+        //variables
+        $error=false;
+        $ret=0;
+        _log("idReservas: ".print_r($idReservas, true));
+        _log("tramo: ".print_r($tramo, true));
+        _log("zona: ".$idReservas->zona, true);
+        _log("Fecha: ".$idReservas->fecha, true);
+        _log("HoraInicio: ".$idReservas->horaInicio, true);
+        _log("Tramo horaInicio: ".$tramo->horaInicio, true);
+        _log("Tramo horaFin: ".$tramo->horaFin, true);
+        
+        //filtramos los datos de idReservas de la fecha, zona y horaInicio
+        $zona=is_int($idReservas->zona)>0 ? $idReservas->zona : $error=true;
+        
+        $fecha_temp=filter_var($idReservas->fecha, FILTER_SANITIZE_STRING);
+        //fecha = false si es incorrecta
+        $fecha=validaDate($fecha_temp, 'Y-m-d');
+        $horaInicio_temp=filter_var($idReservas->horaInicio, FILTER_SANITIZE_STRING);
+        $horaInicio=validaDate($horaInicio_temp, 'H:i');
+        
+        //validamos los datos del tramo
+        $nuevoInicio_temp=filter_var($tramo->horaInicio, FILTER_SANITIZE_STRING);
+        $nuevoInicio=validaDate($nuevoInicio_temp, 'H:i');
+        
+        $nuevoFin_temp=filter_var($tramo->horaFin, FILTER_SANITIZE_STRING);
+        $nuevoFin= validaDate($nuevoFin_temp, 'H:i');
+        
+        _log("Error: ".$error, true);
+        //si hay errores en los datos de entrada terminamos con return -1
+        if(!$error || !$fecha || !$horaInicio || !$nuevoInicio || !$nuevoFin){
+            $ret -1;
+        }else{
+            _log("Variables:", true);
+            _log("zona: ".$zona, true);
+            _log("Fecha: ".$fecha, true);
+            _log("HoraInicio: ".$horaInicio, true);
+            _log("Tramo horaInicio: ".$nuevoInicio, true);
+            _log("Tramo horaFin: ".$nuevoFin, true);
+        }
+        //verificamos si la reserva a modificar existe, si no existe ret=-2
+        //almacenamos los datos en un array_reserva, que si hay resserva se devuelven los dato si 
+        //no existe la reserva se devuelve false
+        if(!$ret){
+            $array_reserva=[$horaInicio, $fecha,$zona];
+            $existe_reserva=buscarReserva($this->PDOconect, $array_reserva);
+            if($existe_reserva){
+                $disponible=false;
+                //si existe verificamos si el nuevo tramo no pisa a otro tramo
+                $tramos= obtenerTramos($this->PDOconect, $fecha, $zona);
+                //si se han obtenido resultados los pocesamos, si no hay datos
+                //el dia la zona están libres
+                if($tramos){
+                    _log("tramos: ".print_r($tramos), true);
+//                    $arrayTramos=$tramos->reservas;
+//                _log("ArrayTramos: ".print_r($arrayTramos), true);
+                }
+            }else{
+                $ret=-2;
+            }
+        }
+        
+//        _log("Existe la reserva: ".$existe_reserva, true);
+//        _log("array_tramos: ".print_r($arrayTramos, true));
+        
+        //resultado de retorno
+        return $ret;
+    }
 }

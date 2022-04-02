@@ -117,7 +117,7 @@ function listarReserva(PDO $conn, $_fecha, $_zona){
         $ps->execute();
 //        $resultado=$ps->fetchAll(PDO::FETCH_ASSOC);
         while($resultado=$ps->fetch(PDO::FETCH_ASSOC)){
-            _log('bucle $resultado: '.var_dump($resultado),true);
+            
             $tramo=new class(){};
             $tramo->horaInicio=$resultado['inicio'];
             $tramo->horaFin=$resultado['fin'];
@@ -133,9 +133,39 @@ function listarReserva(PDO $conn, $_fecha, $_zona){
     //cerramos conexiones
     $ps=null;
     $conn=null;
+    _log('listarReserva: '.print_r($listaTramos),true);
     return $listaTramos;
 }
 
+/**
+ * listar reservas por feccha y zona
+ * @param PDO $conn objeto que apunta a la base de datos
+ * @param array $datos contienes los tramos de ese dia con esa zona
+ * @return int  1 si se ha encontrado el registro o false si no hay resultado
+ */
+function obtenerTramos(PDO $conn, $_fecha, $_zona){
+    $resultado=false;
+    
+    $buscar_sql="SELECT inicio, fin, user_id FROM reservas WHERE fecha = :fecha AND zona_id = :zonaid;";
+    
+    try{
+        $ps=$conn->prepare($buscar_sql);
+        $ps->bindValue('fecha', $_fecha);
+        $ps->bindValue('zonaid', $_zona);
+        $ps->execute();
+        $resultado=$ps->fetchAll(PDO::FETCH_ASSOC);
+        
+        
+    } catch (PDOException $ex) {
+       $resultado=-7;
+      
+    }
+    //cerramos conexiones
+    $ps=null;
+    $conn=null;
+    _log('listarReserva: '.print_r($resultado,true));
+    return $resultado;
+}
 function modificarReserva(PDO $conn, $array){
     $resultado=false;
     $array_reservas=[];
@@ -372,7 +402,7 @@ function sePisa($nuevo_inicio, $nuevo_fin, $array):bool{
  * var_dump(validateDate('14:77', 'H:i')); # false
  * @param type $date fecha a validar
  * @param type $format  formato que tiene el tiempo
- * @return false si hay error o tiempo de entrada si esta bién
+ * @return false si hay error o tiempo de entrada si la fecha u hora son correctas
  */
 function validaDate($date, $format = 'Y-m-d H:i:s')
 {
