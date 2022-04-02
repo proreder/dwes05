@@ -299,7 +299,7 @@ class ReservasSoapHandler{
             _log("Tramo horaFin: ".$nuevoFin, true);
         }
         //verificamos si la reserva a modificar existe, si no existe ret=-2
-        //almacenamos los datos en un array_reserva, que si hay resserva se devuelven los dato si 
+        //almacenamos los datos en un array_reserva, que si hay resserva se devuelven los datos si 
         //no existe la reserva se devuelve false
         if(!$ret){
             $array_reserva=[$horaInicio, $fecha,$zona];
@@ -307,13 +307,23 @@ class ReservasSoapHandler{
             if($existe_reserva){
                 $disponible=false;
                 //si existe verificamos si el nuevo tramo no pisa a otro tramo
-                $tramos= obtenerTramos($this->PDOconect, $fecha, $zona);
-                //si se han obtenido resultados los pocesamos, si no hay datos
-                //el dia la zona están libres
+                $tramos=obtenerTramos($this->PDOconect, $fecha, $zona);
+                //si se han obtenido resultados los procesamos, si no hay datos
+                //el día está libre
                 if($tramos){
                     _log("tramos: ".print_r($tramos), true);
-//                    $arrayTramos=$tramos->reservas;
-//                _log("ArrayTramos: ".print_r($arrayTramos), true);
+                  //true si el nuevo tramo pisa otro tramo ya existente
+                  $sePisa=sePisa($nuevoInicio, $nuevoFin, $tramos);
+                  //si no se pisa procedemos a la modificación del tramo
+                  if(!$sePisa){
+                      //pasamos los datos almacenados en el array  a variables
+                        $array=[$horaInicio, $fecha, $zona, $nuevoInicio, $nuevoFin];
+                        list($_inicio, $_fecha, $_zonaid, $_nuevo_inicio, $_nuevo_fin)=$array;
+                        $ret=modificarReserva($this->PDOconect, $array);
+                        _log("Reserva ret=modificarReserva: ".$ret);
+                  }else{
+                      $ret=-3;
+                  }
                 }
             }else{
                 $ret=-2;

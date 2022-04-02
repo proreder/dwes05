@@ -32,9 +32,6 @@ $p=new Peticion();
 
 
 if($p->has('enviar')){
-    echo "formulario recibido";
-    var_dump($_POST);
-    
     //verificamos que todos los csmpos tengan datos y sean correctos
     //***zona**//
     try{
@@ -75,53 +72,45 @@ if($p->has('enviar')){
      if(!$nuevoFin){
          $errores[]="La hora de fin no tiene el formato correcto";
      }
-}else{
-    $smarty->assign('titulo','Modificar reservas');
-    $smarty->display('../templates/ejercicio7.tpl');
+     //si no hay errores  enviamos lapeticion de modificacion al servidor
+     if(empty($errores)){
+        $idReserva=new class(){};
+        $idReserva->zona=$zona;
+        $idReserva->fecha=$fecha;
+        $idReserva->horaInicio=$horaInicio;
+        $tramo=new class(){};
+        $tramo->horaInicio=$nuevoInicio;
+        $tramo->horaFin=$nuevoFin;
+        $tramo->user="";
+
+        //creamos las instacia de SoapServer y le pasamos el descriptor WDSL
+        $client=new SoapClient($wsdluri, array('trace' => 1));
+
+        try{
+            echo "modificar Reservas try";
+            $resultado=$client->modificarReservas($idReserva, $tramo);
+        }catch (SoapFault $ex) {
+               echo $ex->getMessage();
+               $errores[]="[ERROR] Error al conectar al servicio web."; 
+               echo "<br>__getLastRequest(): ".$client->__getLastRequest();
+               echo "<br>__getLastResponse(): ".$client->__getLastResponse();
+        }
+     }
 }
 
-//si hay errores los mostramos en caso contrario enviamos lapeticion de modificacion al servidor
-if(!empty($errores)){
-    $smarty->assign('errores', $errores);
-    $smarty->assign('titulo','Modificar reservas');
-    $smarty->display('../templates/ejercicio7.tpl');
-}else{
-    echo "modificar Reservas";
-    //$zona="a";
-    //$fecha=
-    //$horaInicio=
-    //$nuevoInicio=
-    //$nuevoFin=-1;
-    
-    $idReserva=new class(){};
-    $idReserva->zona=$zona;
-    $idReserva->fecha=$fecha;
-    $idReserva->horaInicio=$horaInicio;
-    $tramo=new class(){};
-    $tramo->horaInicio=$nuevoInicio;
-    $tramo->horaFin=$nuevoFin;
-    $tramo->user="";
-    
-    //creamos las instacia de SoapServer y le pasamos el descriptor WDSL
-    $client=new SoapClient($wsdluri, array('trace' => 1));
-    
-    try{
-        echo "modificar Reservas try";
-        $resultado=$client->modificarReservas($idReserva, $tramo);
-    }catch (SoapFault $ex) {
-           echo $ex->getMessage();
-           $errores[]="[ERROR] Error al conectar al servicio web."; 
-           echo "<br>__getLastRequest(): ".$client->__getLastRequest();
-           echo "<br>__getLastResponse(): ".$client->__getLastResponse();
-    }
-    echo "<br>Resultado: ".$resultado;
-    //procesamos el resultado obtenido
+ //procesamos el resultado obtenido
     switch ($resultado){
+        case  1 : 
+            $errores[]="Se ha modificado el tramo  de la reserva con éxito.";
+            break;
         case -1 : 
             $errores[]="Error en los datos de reserva o tramo.";
             break;
         case -2 : 
-            $errores[]="Error en los datos de tramo, hora de inicio, hora fin";
+            $errores[]="Error: no existe la reserva a modificar.";
+            break;
+        case -3 : 
+            $errores[]="Error: el nuevo tramo pisa sobre otro existente.";
             break;
     }
         //si hay errores los mostramos en caso contrario enviamos lapeticion de modificacion al servidor
@@ -129,5 +118,7 @@ if(!empty($errores)){
         $smarty->assign('errores', $errores);
         $smarty->assign('titulo','Modificar reservas');
         $smarty->display('../templates/ejercicio7.tpl');
+    }else{
+        $smarty->assign('titulo','Modificar reservas');
+        $smarty->display('../templates/ejercicio7.tpl');
     }
-}

@@ -166,6 +166,12 @@ function obtenerTramos(PDO $conn, $_fecha, $_zona){
     _log('listarReserva: '.print_r($resultado,true));
     return $resultado;
 }
+/**
+ * 
+ * @param PDO $conn objeto que apunta a la conexión a la base de datos
+ * @param array $array contiene los datos de la reserva a modificar
+ * @return boolean true si la reserva se ha modificado con éxito, false en caso contrario
+ */
 function modificarReserva(PDO $conn, $array){
     $resultado=false;
     $array_reservas=[];
