@@ -27,6 +27,7 @@ $smarty->cache_dir = CACHE_DIR;
 $zona=$fecha=$horaInicio=$nuevoInicio=$nuevoFin="";
 $errores=[];
 $resultado=0;
+$modificado=false;
 //instaciamos la clase Peticion
 $p=new Peticion();
 
@@ -46,7 +47,7 @@ if($p->has('enviar')){
      $_fecha=$p->validaDate($date, 'd-m-Y');
      
      if(!$_fecha){
-         $errores[]="fecha o el formato no es correcto";
+         $errores[]="Fecha o el formato de fecha no es correcto";
      }else{
          //cambiamos el formato de fecha a MySQL
         $fecha=$p->fechaAMySQL($_fecha);
@@ -101,7 +102,7 @@ if($p->has('enviar')){
  //procesamos el resultado obtenido
     switch ($resultado){
         case  1 : 
-            $errores[]="Se ha modificado el tramo  de la reserva con éxito.";
+            $modificado="Se ha modificado el tramo  de la reserva con éxito.";
             break;
         case -1 : 
             $errores[]="Error en los datos de reserva o tramo.";
@@ -113,12 +114,9 @@ if($p->has('enviar')){
             $errores[]="Error: el nuevo tramo pisa sobre otro existente.";
             break;
     }
-        //si hay errores los mostramos en caso contrario enviamos lapeticion de modificacion al servidor
-    if(!empty($errores)){
+        //mostraamos la plantilla smarty
         $smarty->assign('errores', $errores);
+        $smarty->assign('modificado', $modificado);
         $smarty->assign('titulo','Modificar reservas');
         $smarty->display('../templates/ejercicio7.tpl');
-    }else{
-        $smarty->assign('titulo','Modificar reservas');
-        $smarty->display('../templates/ejercicio7.tpl');
-    }
+
