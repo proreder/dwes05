@@ -31,38 +31,44 @@
                     {/foreach}
                 </ul>
         {/if}
-        <div class="form">
-         <form action="ejercicio4.php" method="post">
-            <fieldset><!-- comment -->
-                <legend>Formulario de reserva</legend>
-                    <label for="zona_id">
-                        ID de zona:
-                        <input type="text" name="zona_id" id="zona_id"/>*
-                    </label> 
-                    <label for="user_id">
-                        ID de usuario:
-                        <input type="text" name="user_id" id="user_id"/>*
-                    </label>    
-                    <label for="fecha">
-                        Fecha (dd-mm-aaaa):
-                        <input type="text" name="fecha" id="fecha"/>*
+        {if $guardado}
+            <h2 class="verde">El registro se ha guardado correctamente</h2><!-- comment -->
+            <br>
+        <a href="ejercicio4.php">Volver</a>
+        {else}
+            <div class="form">
+             <form action="ejercicio4.php" method="post">
+                <fieldset><!-- comment -->
+                    <legend>Formulario de reserva</legend>
+                        <label for="zona_id">
+                            ID de zona:
+                            <input type="text" name="zona_id" id="zona_id"/>*
+                        </label> 
+                        <label for="user_id">
+                            ID de usuario:
+                            <input type="text" name="user_id" id="user_id"/>*
+                        </label>    
+                        <label for="fecha">
+                            Fecha (dd-mm-aaaa):
+                            <input type="text" name="fecha" id="fecha"/>*
+                        </label>
+                </fieldset>
+                <fieldset>
+                    <label for="horaInicio">
+                        Hora de inicio (hh:mm):
+                        <input type="text" name="horaInicio" id="horaInicio"/>*
                     </label>
-            </fieldset>
-            <fieldset>
-                <label for="horaInicio">
-                    Hora de inicio (hh:mm):
-                    <input type="text" name="horaInicio" id="horaInicio"/>*
-                </label>
-                <label for="horaFin">
-                    Hora de fin (hh:mm):
-                    <input type="text" name="horaFin" id="horaFin"/>*
-                </label>
-                
-            </fieldset>
-             <span class="rojo">* Campos obligatorios</span>
-             <br/><br/>
-            <input type="submit" name="enviar" value="Enviar"/>
-        </form>
-        </div>
+                    <label for="horaFin">
+                        Hora de fin (hh:mm):
+                        <input type="text" name="horaFin" id="horaFin"/>*
+                    </label>
+
+                </fieldset>
+                 <span class="rojo">* Campos obligatorios</span>
+                 <br/><br/>
+                <input type="submit" name="enviar" value="Enviar"/>
+            </form>
+            </div>
+        {/if}
     </body>
 </html>

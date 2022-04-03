@@ -107,13 +107,13 @@
             </table>
             {if !empty($errores)}
             
-            <h3>Errores encontrados:</h3>
-            <ul>
-               {foreach from=$errores item=$error}
-                   <li>{$error}</li>
-                {/foreach}
-            </ul>
-        {/if}                
+                <h3>Errores encontrados:</h3>
+                <ul>
+                   {foreach from=$errores item=$error}
+                       <li>{$error}</li>
+                    {/foreach}
+                </ul>
+            {/if}                
           <a href="ejercicio6.php">Volver</a>                
         </div>
     </body>

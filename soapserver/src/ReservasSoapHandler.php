@@ -17,14 +17,14 @@ class ReservasSoapHandler{
         }else{
             $this->errorConnect=true;
              _log('ERROR: No se ha podido establecer conexión a la base de datos');
-//             return $array=['error' => -1];
+       
         }
     }
     //crea una reserva con el objeto datosReserva pasado como argumento
     /**
      * 
      * @param type datosReserva objeto de clase anonima:
-     *  
+     * @return int devuelve un entero que corresponte a la acción realizada
      *       datosReserva= new class(){
      *       public $user;
      *       public $zona;
@@ -37,11 +37,8 @@ class ReservasSoapHandler{
     */
     public function crearReserva($datosReserva){
         $result=false;
-        //error para return 1
-        $error=false;
-        $errorTramos=false;
-        $errorPisa=false;
         
+        $error=false;
         //logs de los datos recibidos para crear una reserva
 //        _log('Datos recibidos:'.print_r($datosReserva, true));
         $_user=$datosReserva->user;
@@ -89,13 +86,7 @@ class ReservasSoapHandler{
              $error=true;
          }
 
-////        
-//         _log ('User: '.$user);
-//            _log ('Zona: '.$zona);
-//            _log ('Fecha: '.$fecha);
-//            _log ('Hora de Inicio:'.$horaInicio);
-//            _log ('errorConnect:'.$this->errorConnect);
-//            _log ('error:'.$error);
+     
         if(!$this->errorConnect && !$error){
             $result=insertarReserva($this->PDOconect, $fecha, $horaInicio, $horaFin, $zona, $user);
 //            _log("result ".$result);
@@ -103,11 +94,15 @@ class ReservasSoapHandler{
           
         return $result;
     }
-    
+    /**
+     * Función pública de eliminación de una reserva
+     * @param type $datosBorrarReserva objeto que contiene zona, fecha y horaInicio
+     * @return int devuelve un entero que corresponde con una acción realizada
+     */
     public function eliminarReserva($datosBorrarReserva){
         
         $this->resultado=false;
-        
+        $hayReserva=false;
         //logs de los datos recibidos para crear una reserva
         _log ('Datos recibidos:'.print_r($datosBorrarReserva, true));
         $_zona=$datosBorrarReserva->zona;
@@ -139,17 +134,21 @@ class ReservasSoapHandler{
          }else{
              $horainicio=date("H:i:s",strtotime($horaInicio));
          _log ("Hora_inicio: ".$horainicio,true);
-//            $horaInicio=$horaInicio.":00";
-//             $horainicio=date("H:i",strtotime($horaInicio));
-//              echo "Hora: ".$horainicio;
+//       
          }
 
-             _log ('Zona: '.$zona);
-            _log ('Fecha: '.$fecha);
-            _log ('Hora de Inicio:'.$horaInicio);
-
+        //verificamo si la reserva existe antes de eliminar
+        //creamos un array[$horaInicio, $fecha, $zona] y lo pasamos como parametro a buscarReserva
         if(!$this->resultado){
+            $array=[$horaInicio, $fecha, $zona];
+            //$hayReserva=true si la reserva a eliminar existe
+            $hayReserva=buscarReserva($this->PDOconect, $array);
+            _log("hayReserva: ".$hayReserva);
+        }  
+        if($hayReserva){
             $this->resultado=eliminarReserva($this->PDOconect, $zona, $fecha, $horaInicio);
+        }else{
+            $this->resultado=-5;
         }  
         return $this->resultado;
     
@@ -157,9 +156,9 @@ class ReservasSoapHandler{
     }
     /**
      * 
-     * @param date $fecha
-     * @param int $zona
-     * @return objeto o array
+     * @param date $fecha string de fecha vaildo a buscar
+     * @param int $zona  entero que corresponde a la zona a mostrar
+     * @return objeto que contiene los tramos encontrados
      * * @return Los escenarios posibles en esta operación son:
 	1->error. Que haya problemas en la base de datos o que los parámetros de entrada de la operación no sean correctos: retornará el objeto con la fecha y la zona vacíos, y sin ningún tramo.
 	2->errorTramos. Que no haya ninguna reserva en los tramos indicados: se retornará un array con cero tramos y el resto de datos rellenos.
@@ -167,9 +166,6 @@ class ReservasSoapHandler{
      */    
     public function listarReservas($_fecha, $_zona){
         $error=false;
-        
-        
-//        $tramo=new class(){};
         
         //logs de los datos recibidos para crear una reserva
         _log ('Datos fecha:'.$_fecha, true);
@@ -192,8 +188,7 @@ class ReservasSoapHandler{
          }else{
            $error=true;  
          }
-         
-         _log('Error: '.$error);
+        
            
         //si hay error en la conexión a la base de datos y error en los datos fecha y zona
         // se devuelve el objeto con fecha y zona vacios
@@ -207,17 +202,7 @@ class ReservasSoapHandler{
             $listaReservas->reservas=[];
             return $listaReservas;
         } 
-        _log('Tramos encontrados:'.print_r($tramos, true));
-        //si hay error en la consulta o hay error en los paramentros de la consulta
-//        if($error==-1 || $tramos==-1){
-//            $listaReservas->fecha="";
-//            $listaReservas->zona="";
-//            $tramo->horaInicio="";
-//            $tramo->horaFin="";
-//            $listaReservas->reservas[]=$tramo;
-//            _log('$error==-1 || $tramos==-1))'.print_r($listaReservas, true));
-//        }
-//        
+        
 //        //si no hay error en los paramentros de la consulta y tramos está vacio 
 //        // un array con la fecha y zona y cero tramos
         if(!$error && !isset($tramos->tramo)){
@@ -241,10 +226,7 @@ class ReservasSoapHandler{
             
             
         }
-       _log('listaReservas SoapHandler:'.print_r($listaReservas, true));
-        
-    
-        return $listaReservas;
+       return $listaReservas;
     }
     
     
@@ -256,6 +238,10 @@ class ReservasSoapHandler{
      * 	Que el servicio web responda que no se ha podido modificar la reserva porque el horario no es posible o la hora de inicio/fin son incorrectas.
      * 	Que el servicio web responda que no se ha podido modificar la reserva porque hay solapamiento con otra reserva.
      *	Que el servicio web responda que se ha modificado la reserva sin problemas.
+     * 
+     *  @param clase anónima $idReservas Objeto que contiene la fecha, horaInicio y zona
+     *  @param clase anónima $tramo Objeto que contien un tramo con horaInicio y horaFin
+     *  @return int entero que corresponde con el resultado de la operación
      *
      */
     public function modificarReservas($idReservas, $tramo){

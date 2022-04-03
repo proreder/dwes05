@@ -23,13 +23,12 @@ $smarty->cache_dir = CACHE_DIR;
 //instaciamos la clase Peticion
 $p=new Peticion();
 //variables
+$guardado=false;
 $errores=[];
 $resultado=0;
 //verficamos que se han recibido datos del formulario
 if($p->has('enviar')){
-//    echo "formulario recibido";
-//    var_dump($_POST);
-    
+
     //verificamos que todos los csmpos tengan datosy sean correctos
     //***zona**//
     try{
@@ -50,7 +49,7 @@ if($p->has('enviar')){
      $_fecha=$p->validaDate($date, 'd-m-Y');
      
      if(!$_fecha){
-         $errores[]="fecha o el formato no es correcto";
+         $errores[]="Fecha o el formato no es correcto";
      }else{
          //cambiamos el formato de fecha a MySQL
         $fecha=$p->fechaAMySQL($_fecha);
@@ -66,7 +65,7 @@ if($p->has('enviar')){
      $_horaFin=$p->getString('horaFin', true);
      $horaFin=$p->validaDate($_horaFin, 'H:i');
      if(!$horaFin){
-         $errores[]="La hora de inicio no tiene el formato correcto";
+         $errores[]="La hora de fin no tiene el formato correcto";
      }
      
     //Comparamos que las horas sean consecutivas, que la horaFin no sea anterior que la horaFinal
@@ -86,19 +85,16 @@ if($p->has('enviar')){
         $reserva->tramo->horaInicio=$horaInicio;
         $reserva->tramo->horaFin=$horaFin;
         $reserva->tramo->user="";
-        echo "reserva: ".print_r($reserva,true);
+        
         $resultado=$client->crearReserva($reserva);
-        echo "<br>Resultado: ".$resultado;
+        
      }
-    
-}else{
-    $errores[]='Formulario no recibido';
-    
+  
 }
     //procesamos los resultados devueltos por ReservasSoapHandler
     switch($resultado){
         case  1:
-          $result="El registro se ha guardado correctamente";
+          $guardado=true;
           break;
         case -1:
           $errores[]="Existe un solapamiento en fecha y horas en un registro guardado";
@@ -122,17 +118,15 @@ if($p->has('enviar')){
           $errores[]="ERROR: No se puede acceder a la base de datos";
           break;
     }
-    if(!empty($errores)){
-        $smarty->assign('errores', $errores);
-        $smarty->assign('titulo','Realizar una reserva');
-        $smarty->display('../templates/ejercicio4.tpl');
-    }else{
-        $smarty->assign('resultado', $resultado);
-        $smarty->assign('titulo','Resultado de la reserva');
-        $smarty->display('../templates/ejercicio4_resultado.tpl');
-    }
+    
+    //mostramos la plantilla
+    $smarty->assign('errores', $errores);
+    $smarty->assign('guardado', $guardado);
+    $smarty->assign('titulo','Crear una reserva');
+    $smarty->display('../templates/ejercicio4.tpl');
+    
     
 
-//funciones
+
 
 

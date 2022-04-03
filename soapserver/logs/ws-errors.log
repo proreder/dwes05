@@ -1,545 +1,139 @@
-[02-Apr-2022 18:58:54 Europe/Berlin] PHP Warning:  Use of undefined constant APP_ROOT_DIR - assumed 'APP_ROOT_DIR' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\DWES05\soapserver\conf\conf.php on line 2
-[02-Apr-2022 18:58:54 Europe/Berlin] PHP Warning:  Use of undefined constant APP_ROOT_DIR - assumed 'APP_ROOT_DIR' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\DWES05\soapserver\conf\conf.php on line 4
-[02-Apr-2022 18:58:54 Europe/Berlin] PHP Warning:  Use of undefined constant APP_ROOT_DIR - assumed 'APP_ROOT_DIR' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\DWES05\soapserver\conf\conf.php on line 5
-[02-Apr-2022 18:58:54 Europe/Berlin] PHP Warning:  Use of undefined constant APP_ROOT_DIR - assumed 'APP_ROOT_DIR' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\DWES05\soapserver\conf\conf.php on line 6
-[02-Apr-2022 18:58:54 Europe/Berlin] PHP Warning:  Use of undefined constant APP_ROOT_DIR - assumed 'APP_ROOT_DIR' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\DWES05\soapserver\conf\conf.php on line 7
-[02-Apr-2022 18:58:54](INFO)Se ha iniciado el servicio SoapServer en la url: http://localhost/dwes05/soapserver/tarea05.wsdl
-[02-Apr-2022 18:58:54](INFO)Conexión establecida con la base de datos
-[02-Apr-2022 18:58:54](INFO)idReservas: stdClass Object
+[03-Apr-2022 19:13:59 Europe/Berlin] PHP Warning:  Use of undefined constant APP_ROOT_DIR - assumed 'APP_ROOT_DIR' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\DWES05\soapserver\conf\conf.php on line 2
+[03-Apr-2022 19:13:59 Europe/Berlin] PHP Warning:  Use of undefined constant APP_ROOT_DIR - assumed 'APP_ROOT_DIR' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\DWES05\soapserver\conf\conf.php on line 4
+[03-Apr-2022 19:13:59 Europe/Berlin] PHP Warning:  Use of undefined constant APP_ROOT_DIR - assumed 'APP_ROOT_DIR' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\DWES05\soapserver\conf\conf.php on line 5
+[03-Apr-2022 19:13:59 Europe/Berlin] PHP Warning:  Use of undefined constant APP_ROOT_DIR - assumed 'APP_ROOT_DIR' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\DWES05\soapserver\conf\conf.php on line 6
+[03-Apr-2022 19:13:59 Europe/Berlin] PHP Warning:  Use of undefined constant APP_ROOT_DIR - assumed 'APP_ROOT_DIR' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\DWES05\soapserver\conf\conf.php on line 7
+[03-Apr-2022 19:13:59](INFO)Se ha iniciado el servicio SoapServer en la url: http://localhost/dwes05/soapserver/tarea05.wsdl
+[03-Apr-2022 19:13:59](INFO)Conexión establecida con la base de datos
+[03-Apr-2022 19:13:59](INFO)Datos recibidos:stdClass Object
 (
-    [zona] => 9
-    [fecha] => 2021-01-25
-    [horaInicio] => 16:00
-)
-
-[02-Apr-2022 18:58:54](INFO)tramo: stdClass Object
-(
-    [horaInicio] => 20:00
-    [horaFin] => 21:00
-    [user] => 0
-)
-
-[02-Apr-2022 18:58:54](1)zona: 9
-[02-Apr-2022 18:58:54](1)Fecha: 2021-01-25
-[02-Apr-2022 18:58:54](1)HoraInicio: 16:00
-[02-Apr-2022 18:58:54](1)Tramo horaInicio: 20:00
-[02-Apr-2022 18:58:54](1)Tramo horaFin: 21:00
-[02-Apr-2022 18:58:54](1)Error: 
-[02-Apr-2022 19:01:43 Europe/Berlin] PHP Warning:  Use of undefined constant APP_ROOT_DIR - assumed 'APP_ROOT_DIR' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\DWES05\soapserver\conf\conf.php on line 2
-[02-Apr-2022 19:01:43 Europe/Berlin] PHP Warning:  Use of undefined constant APP_ROOT_DIR - assumed 'APP_ROOT_DIR' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\DWES05\soapserver\conf\conf.php on line 4
-[02-Apr-2022 19:01:43 Europe/Berlin] PHP Warning:  Use of undefined constant APP_ROOT_DIR - assumed 'APP_ROOT_DIR' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\DWES05\soapserver\conf\conf.php on line 5
-[02-Apr-2022 19:01:43 Europe/Berlin] PHP Warning:  Use of undefined constant APP_ROOT_DIR - assumed 'APP_ROOT_DIR' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\DWES05\soapserver\conf\conf.php on line 6
-[02-Apr-2022 19:01:43 Europe/Berlin] PHP Warning:  Use of undefined constant APP_ROOT_DIR - assumed 'APP_ROOT_DIR' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\DWES05\soapserver\conf\conf.php on line 7
-[02-Apr-2022 19:01:43](INFO)Se ha iniciado el servicio SoapServer en la url: http://localhost/dwes05/soapserver/tarea05.wsdl
-[02-Apr-2022 19:01:43](INFO)Conexión establecida con la base de datos
-[02-Apr-2022 19:01:43](INFO)idReservas: stdClass Object
-(
-    [zona] => 9
-    [fecha] => 2022-01-25
-    [horaInicio] => 16:00
-)
-
-[02-Apr-2022 19:01:43](INFO)tramo: stdClass Object
-(
-    [horaInicio] => 20:00
-    [horaFin] => 21:00
-    [user] => 0
-)
-
-[02-Apr-2022 19:01:43](1)zona: 9
-[02-Apr-2022 19:01:43](1)Fecha: 2022-01-25
-[02-Apr-2022 19:01:43](1)HoraInicio: 16:00
-[02-Apr-2022 19:01:43](1)Tramo horaInicio: 20:00
-[02-Apr-2022 19:01:43](1)Tramo horaFin: 21:00
-[02-Apr-2022 19:01:43](1)Error: 
-[02-Apr-2022 19:01:43](INFO)listarReserva: Array
-(
-    [0] => Array
-        (
-            [inicio] => 12:00:00
-            [fin] => 13:00:00
-            [user_id] => 12
-        )
-
-    [1] => Array
-        (
-            [inicio] => 14:00:00
-            [fin] => 15:00:00
-            [user_id] => 12
-        )
-
-    [2] => Array
-        (
-            [inicio] => 16:00:00
-            [fin] => 17:00:00
-            [user_id] => 12
-        )
-
-)
-
-[02-Apr-2022 19:01:43](1)tramos: 1
-[02-Apr-2022 19:34:29 Europe/Berlin] PHP Warning:  Use of undefined constant APP_ROOT_DIR - assumed 'APP_ROOT_DIR' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\DWES05\soapserver\conf\conf.php on line 2
-[02-Apr-2022 19:34:29 Europe/Berlin] PHP Warning:  Use of undefined constant APP_ROOT_DIR - assumed 'APP_ROOT_DIR' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\DWES05\soapserver\conf\conf.php on line 4
-[02-Apr-2022 19:34:29 Europe/Berlin] PHP Warning:  Use of undefined constant APP_ROOT_DIR - assumed 'APP_ROOT_DIR' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\DWES05\soapserver\conf\conf.php on line 5
-[02-Apr-2022 19:34:29 Europe/Berlin] PHP Warning:  Use of undefined constant APP_ROOT_DIR - assumed 'APP_ROOT_DIR' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\DWES05\soapserver\conf\conf.php on line 6
-[02-Apr-2022 19:34:29 Europe/Berlin] PHP Warning:  Use of undefined constant APP_ROOT_DIR - assumed 'APP_ROOT_DIR' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\DWES05\soapserver\conf\conf.php on line 7
-[02-Apr-2022 19:34:29](INFO)Se ha iniciado el servicio SoapServer en la url: http://localhost/dwes05/soapserver/tarea05.wsdl
-[02-Apr-2022 19:34:29](INFO)Conexión establecida con la base de datos
-[02-Apr-2022 19:34:29](INFO)idReservas: stdClass Object
-(
-    [zona] => 9
-    [fecha] => 2022-01-25
-    [horaInicio] => 16:00
-)
-
-[02-Apr-2022 19:34:29](INFO)tramo: stdClass Object
-(
-    [horaInicio] => 20:00
-    [horaFin] => 21:00
-    [user] => 0
-)
-
-[02-Apr-2022 19:34:29](1)zona: 9
-[02-Apr-2022 19:34:29](1)Fecha: 2022-01-25
-[02-Apr-2022 19:34:29](1)HoraInicio: 16:00
-[02-Apr-2022 19:34:29](1)Tramo horaInicio: 20:00
-[02-Apr-2022 19:34:29](1)Tramo horaFin: 21:00
-[02-Apr-2022 19:34:29](1)Error: 
-[02-Apr-2022 19:34:29](INFO)listarReserva: Array
-(
-    [0] => Array
-        (
-            [inicio] => 12:00:00
-            [fin] => 13:00:00
-            [user_id] => 12
-        )
-
-    [1] => Array
-        (
-            [inicio] => 14:00:00
-            [fin] => 15:00:00
-            [user_id] => 12
-        )
-
-    [2] => Array
-        (
-            [inicio] => 16:00:00
-            [fin] => 17:00:00
-            [user_id] => 12
-        )
-
-)
-
-[02-Apr-2022 19:34:29](1)tramos: 1
-[02-Apr-2022 19:34:29](INFO)Reserva ret=modificarReserva: 1
-[02-Apr-2022 19:35:44 Europe/Berlin] PHP Warning:  Use of undefined constant APP_ROOT_DIR - assumed 'APP_ROOT_DIR' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\DWES05\soapserver\conf\conf.php on line 2
-[02-Apr-2022 19:35:44 Europe/Berlin] PHP Warning:  Use of undefined constant APP_ROOT_DIR - assumed 'APP_ROOT_DIR' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\DWES05\soapserver\conf\conf.php on line 4
-[02-Apr-2022 19:35:44 Europe/Berlin] PHP Warning:  Use of undefined constant APP_ROOT_DIR - assumed 'APP_ROOT_DIR' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\DWES05\soapserver\conf\conf.php on line 5
-[02-Apr-2022 19:35:44 Europe/Berlin] PHP Warning:  Use of undefined constant APP_ROOT_DIR - assumed 'APP_ROOT_DIR' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\DWES05\soapserver\conf\conf.php on line 6
-[02-Apr-2022 19:35:44 Europe/Berlin] PHP Warning:  Use of undefined constant APP_ROOT_DIR - assumed 'APP_ROOT_DIR' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\DWES05\soapserver\conf\conf.php on line 7
-[02-Apr-2022 19:35:44](INFO)Se ha iniciado el servicio SoapServer en la url: http://localhost/dwes05/soapserver/tarea05.wsdl
-[02-Apr-2022 19:35:44](INFO)Conexión establecida con la base de datos
-[02-Apr-2022 19:35:44](INFO)idReservas: stdClass Object
-(
-    [zona] => 9
-    [fecha] => 2022-01-25
-    [horaInicio] => 20:00
-)
-
-[02-Apr-2022 19:35:44](INFO)tramo: stdClass Object
-(
-    [horaInicio] => 21:01
-    [horaFin] => 22:00
-    [user] => 0
-)
-
-[02-Apr-2022 19:35:44](1)zona: 9
-[02-Apr-2022 19:35:44](1)Fecha: 2022-01-25
-[02-Apr-2022 19:35:44](1)HoraInicio: 20:00
-[02-Apr-2022 19:35:44](1)Tramo horaInicio: 21:01
-[02-Apr-2022 19:35:44](1)Tramo horaFin: 22:00
-[02-Apr-2022 19:35:44](1)Error: 
-[02-Apr-2022 19:35:44](INFO)listarReserva: Array
-(
-    [0] => Array
-        (
-            [inicio] => 12:00:00
-            [fin] => 13:00:00
-            [user_id] => 12
-        )
-
-    [1] => Array
-        (
-            [inicio] => 14:00:00
-            [fin] => 15:00:00
-            [user_id] => 12
-        )
-
-    [2] => Array
-        (
-            [inicio] => 20:00:00
-            [fin] => 21:00:00
-            [user_id] => 12
-        )
-
-)
-
-[02-Apr-2022 19:35:44](1)tramos: 1
-[02-Apr-2022 19:35:44](INFO)Reserva ret=modificarReserva: 1
-[02-Apr-2022 19:36:13 Europe/Berlin] PHP Warning:  Use of undefined constant APP_ROOT_DIR - assumed 'APP_ROOT_DIR' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\DWES05\soapserver\conf\conf.php on line 2
-[02-Apr-2022 19:36:13 Europe/Berlin] PHP Warning:  Use of undefined constant APP_ROOT_DIR - assumed 'APP_ROOT_DIR' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\DWES05\soapserver\conf\conf.php on line 4
-[02-Apr-2022 19:36:13 Europe/Berlin] PHP Warning:  Use of undefined constant APP_ROOT_DIR - assumed 'APP_ROOT_DIR' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\DWES05\soapserver\conf\conf.php on line 5
-[02-Apr-2022 19:36:13 Europe/Berlin] PHP Warning:  Use of undefined constant APP_ROOT_DIR - assumed 'APP_ROOT_DIR' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\DWES05\soapserver\conf\conf.php on line 6
-[02-Apr-2022 19:36:13 Europe/Berlin] PHP Warning:  Use of undefined constant APP_ROOT_DIR - assumed 'APP_ROOT_DIR' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\DWES05\soapserver\conf\conf.php on line 7
-[02-Apr-2022 19:36:13](INFO)Se ha iniciado el servicio SoapServer en la url: http://localhost/dwes05/soapserver/tarea05.wsdl
-[02-Apr-2022 19:36:13](INFO)Conexión establecida con la base de datos
-[02-Apr-2022 19:36:13](INFO)idReservas: stdClass Object
-(
-    [zona] => 9
+    [zona] => 7
     [fecha] => 2022-01-25
     [horaInicio] => 21:00
 )
 
-[02-Apr-2022 19:36:13](INFO)tramo: stdClass Object
+[03-Apr-2022 19:13:59](1)Hora_inicio: 21:00:00
+[03-Apr-2022 19:17:12 Europe/Berlin] PHP Warning:  Use of undefined constant APP_ROOT_DIR - assumed 'APP_ROOT_DIR' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\DWES05\soapserver\conf\conf.php on line 2
+[03-Apr-2022 19:17:12 Europe/Berlin] PHP Warning:  Use of undefined constant APP_ROOT_DIR - assumed 'APP_ROOT_DIR' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\DWES05\soapserver\conf\conf.php on line 4
+[03-Apr-2022 19:17:12 Europe/Berlin] PHP Warning:  Use of undefined constant APP_ROOT_DIR - assumed 'APP_ROOT_DIR' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\DWES05\soapserver\conf\conf.php on line 5
+[03-Apr-2022 19:17:12 Europe/Berlin] PHP Warning:  Use of undefined constant APP_ROOT_DIR - assumed 'APP_ROOT_DIR' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\DWES05\soapserver\conf\conf.php on line 6
+[03-Apr-2022 19:17:12 Europe/Berlin] PHP Warning:  Use of undefined constant APP_ROOT_DIR - assumed 'APP_ROOT_DIR' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\DWES05\soapserver\conf\conf.php on line 7
+[03-Apr-2022 19:17:12](INFO)Se ha iniciado el servicio SoapServer en la url: http://localhost/dwes05/soapserver/tarea05.wsdl
+[03-Apr-2022 19:17:12](INFO)Conexión establecida con la base de datos
+[03-Apr-2022 19:17:12](INFO)Datos recibidos:stdClass Object
 (
-    [horaInicio] => 21:01
-    [horaFin] => 22:00
-    [user] => 0
-)
-
-[02-Apr-2022 19:36:13](1)zona: 9
-[02-Apr-2022 19:36:13](1)Fecha: 2022-01-25
-[02-Apr-2022 19:36:13](1)HoraInicio: 21:00
-[02-Apr-2022 19:36:13](1)Tramo horaInicio: 21:01
-[02-Apr-2022 19:36:13](1)Tramo horaFin: 22:00
-[02-Apr-2022 19:36:13](1)Error: 
-[02-Apr-2022 19:42:15 Europe/Berlin] PHP Warning:  Use of undefined constant APP_ROOT_DIR - assumed 'APP_ROOT_DIR' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\DWES05\soapserver\conf\conf.php on line 2
-[02-Apr-2022 19:42:15 Europe/Berlin] PHP Warning:  Use of undefined constant APP_ROOT_DIR - assumed 'APP_ROOT_DIR' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\DWES05\soapserver\conf\conf.php on line 4
-[02-Apr-2022 19:42:15 Europe/Berlin] PHP Warning:  Use of undefined constant APP_ROOT_DIR - assumed 'APP_ROOT_DIR' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\DWES05\soapserver\conf\conf.php on line 5
-[02-Apr-2022 19:42:15 Europe/Berlin] PHP Warning:  Use of undefined constant APP_ROOT_DIR - assumed 'APP_ROOT_DIR' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\DWES05\soapserver\conf\conf.php on line 6
-[02-Apr-2022 19:42:15 Europe/Berlin] PHP Warning:  Use of undefined constant APP_ROOT_DIR - assumed 'APP_ROOT_DIR' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\DWES05\soapserver\conf\conf.php on line 7
-[02-Apr-2022 19:42:15](INFO)Se ha iniciado el servicio SoapServer en la url: http://localhost/dwes05/soapserver/tarea05.wsdl
-[02-Apr-2022 19:42:16](INFO)Conexión establecida con la base de datos
-[02-Apr-2022 19:42:16](INFO)idReservas: stdClass Object
-(
-    [zona] => 9
+    [zona] => 7
     [fecha] => 2022-01-25
-    [horaInicio] => 21:00
+    [horaInicio] => 09:00
 )
 
-[02-Apr-2022 19:42:16](INFO)tramo: stdClass Object
+[03-Apr-2022 19:17:12](1)Hora_inicio: 09:00:00
+[03-Apr-2022 19:17:12](INFO)hayReserva: 
+[03-Apr-2022 19:17:33 Europe/Berlin] PHP Warning:  Use of undefined constant APP_ROOT_DIR - assumed 'APP_ROOT_DIR' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\DWES05\soapserver\conf\conf.php on line 2
+[03-Apr-2022 19:17:33 Europe/Berlin] PHP Warning:  Use of undefined constant APP_ROOT_DIR - assumed 'APP_ROOT_DIR' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\DWES05\soapserver\conf\conf.php on line 4
+[03-Apr-2022 19:17:33 Europe/Berlin] PHP Warning:  Use of undefined constant APP_ROOT_DIR - assumed 'APP_ROOT_DIR' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\DWES05\soapserver\conf\conf.php on line 5
+[03-Apr-2022 19:17:33 Europe/Berlin] PHP Warning:  Use of undefined constant APP_ROOT_DIR - assumed 'APP_ROOT_DIR' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\DWES05\soapserver\conf\conf.php on line 6
+[03-Apr-2022 19:17:33 Europe/Berlin] PHP Warning:  Use of undefined constant APP_ROOT_DIR - assumed 'APP_ROOT_DIR' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\DWES05\soapserver\conf\conf.php on line 7
+[03-Apr-2022 19:17:33](INFO)Se ha iniciado el servicio SoapServer en la url: http://localhost/dwes05/soapserver/tarea05.wsdl
+[03-Apr-2022 19:17:33](INFO)Conexión establecida con la base de datos
+[03-Apr-2022 19:17:33](INFO)Datos recibidos:stdClass Object
 (
-    [horaInicio] => 21:01
-    [horaFin] => 22:00
-    [user] => 0
-)
-
-[02-Apr-2022 19:42:16](1)zona: 9
-[02-Apr-2022 19:42:16](1)Fecha: 2022-01-25
-[02-Apr-2022 19:42:16](1)HoraInicio: 21:00
-[02-Apr-2022 19:42:16](1)Tramo horaInicio: 21:01
-[02-Apr-2022 19:42:16](1)Tramo horaFin: 22:00
-[02-Apr-2022 19:42:16](1)Error: 
-[02-Apr-2022 19:43:41 Europe/Berlin] PHP Warning:  Use of undefined constant APP_ROOT_DIR - assumed 'APP_ROOT_DIR' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\DWES05\soapserver\conf\conf.php on line 2
-[02-Apr-2022 19:43:41 Europe/Berlin] PHP Warning:  Use of undefined constant APP_ROOT_DIR - assumed 'APP_ROOT_DIR' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\DWES05\soapserver\conf\conf.php on line 4
-[02-Apr-2022 19:43:41 Europe/Berlin] PHP Warning:  Use of undefined constant APP_ROOT_DIR - assumed 'APP_ROOT_DIR' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\DWES05\soapserver\conf\conf.php on line 5
-[02-Apr-2022 19:43:41 Europe/Berlin] PHP Warning:  Use of undefined constant APP_ROOT_DIR - assumed 'APP_ROOT_DIR' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\DWES05\soapserver\conf\conf.php on line 6
-[02-Apr-2022 19:43:41 Europe/Berlin] PHP Warning:  Use of undefined constant APP_ROOT_DIR - assumed 'APP_ROOT_DIR' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\DWES05\soapserver\conf\conf.php on line 7
-[02-Apr-2022 19:43:41](INFO)Se ha iniciado el servicio SoapServer en la url: http://localhost/dwes05/soapserver/tarea05.wsdl
-[02-Apr-2022 19:43:41](INFO)Conexión establecida con la base de datos
-[02-Apr-2022 19:43:41](INFO)idReservas: stdClass Object
-(
-    [zona] => 9
+    [zona] => 7
     [fecha] => 2022-01-25
-    [horaInicio] => 21:01
-)
-
-[02-Apr-2022 19:43:41](INFO)tramo: stdClass Object
-(
-    [horaInicio] => 16:00
-    [horaFin] => 17:00
-    [user] => 0
-)
-
-[02-Apr-2022 19:43:41](1)zona: 9
-[02-Apr-2022 19:43:41](1)Fecha: 2022-01-25
-[02-Apr-2022 19:43:41](1)HoraInicio: 21:01
-[02-Apr-2022 19:43:41](1)Tramo horaInicio: 16:00
-[02-Apr-2022 19:43:41](1)Tramo horaFin: 17:00
-[02-Apr-2022 19:43:41](1)Error: 
-[02-Apr-2022 19:43:41](INFO)listarReserva: Array
-(
-    [0] => Array
-        (
-            [inicio] => 12:00:00
-            [fin] => 13:00:00
-            [user_id] => 12
-        )
-
-    [1] => Array
-        (
-            [inicio] => 14:00:00
-            [fin] => 15:00:00
-            [user_id] => 12
-        )
-
-    [2] => Array
-        (
-            [inicio] => 21:01:00
-            [fin] => 22:00:00
-            [user_id] => 12
-        )
-
-)
-
-[02-Apr-2022 19:43:41](1)tramos: 1
-[02-Apr-2022 19:43:41](INFO)Reserva ret=modificarReserva: 1
-[02-Apr-2022 19:44:47 Europe/Berlin] PHP Warning:  Use of undefined constant APP_ROOT_DIR - assumed 'APP_ROOT_DIR' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\DWES05\soapserver\conf\conf.php on line 2
-[02-Apr-2022 19:44:47 Europe/Berlin] PHP Warning:  Use of undefined constant APP_ROOT_DIR - assumed 'APP_ROOT_DIR' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\DWES05\soapserver\conf\conf.php on line 4
-[02-Apr-2022 19:44:47 Europe/Berlin] PHP Warning:  Use of undefined constant APP_ROOT_DIR - assumed 'APP_ROOT_DIR' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\DWES05\soapserver\conf\conf.php on line 5
-[02-Apr-2022 19:44:47 Europe/Berlin] PHP Warning:  Use of undefined constant APP_ROOT_DIR - assumed 'APP_ROOT_DIR' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\DWES05\soapserver\conf\conf.php on line 6
-[02-Apr-2022 19:44:47 Europe/Berlin] PHP Warning:  Use of undefined constant APP_ROOT_DIR - assumed 'APP_ROOT_DIR' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\DWES05\soapserver\conf\conf.php on line 7
-[02-Apr-2022 19:44:47](INFO)Se ha iniciado el servicio SoapServer en la url: http://localhost/dwes05/soapserver/tarea05.wsdl
-[02-Apr-2022 19:44:47](INFO)Conexión establecida con la base de datos
-[02-Apr-2022 19:44:47](INFO)idReservas: stdClass Object
-(
-    [zona] => 9
-    [fecha] => 2022-01-25
-    [horaInicio] => 16:00
-)
-
-[02-Apr-2022 19:44:47](INFO)tramo: stdClass Object
-(
-    [horaInicio] => 14:00
-    [horaFin] => 15:00
-    [user] => 0
-)
-
-[02-Apr-2022 19:44:47](1)zona: 9
-[02-Apr-2022 19:44:47](1)Fecha: 2022-01-25
-[02-Apr-2022 19:44:47](1)HoraInicio: 16:00
-[02-Apr-2022 19:44:47](1)Tramo horaInicio: 14:00
-[02-Apr-2022 19:44:47](1)Tramo horaFin: 15:00
-[02-Apr-2022 19:44:47](1)Error: 
-[02-Apr-2022 19:44:47](INFO)listarReserva: Array
-(
-    [0] => Array
-        (
-            [inicio] => 12:00:00
-            [fin] => 13:00:00
-            [user_id] => 12
-        )
-
-    [1] => Array
-        (
-            [inicio] => 14:00:00
-            [fin] => 15:00:00
-            [user_id] => 12
-        )
-
-    [2] => Array
-        (
-            [inicio] => 16:00:00
-            [fin] => 17:00:00
-            [user_id] => 12
-        )
-
-)
-
-[02-Apr-2022 19:44:47](1)tramos: 1
-[02-Apr-2022 19:47:01 Europe/Berlin] PHP Warning:  Use of undefined constant APP_ROOT_DIR - assumed 'APP_ROOT_DIR' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\DWES05\soapserver\conf\conf.php on line 2
-[02-Apr-2022 19:47:01 Europe/Berlin] PHP Warning:  Use of undefined constant APP_ROOT_DIR - assumed 'APP_ROOT_DIR' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\DWES05\soapserver\conf\conf.php on line 4
-[02-Apr-2022 19:47:01 Europe/Berlin] PHP Warning:  Use of undefined constant APP_ROOT_DIR - assumed 'APP_ROOT_DIR' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\DWES05\soapserver\conf\conf.php on line 5
-[02-Apr-2022 19:47:01 Europe/Berlin] PHP Warning:  Use of undefined constant APP_ROOT_DIR - assumed 'APP_ROOT_DIR' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\DWES05\soapserver\conf\conf.php on line 6
-[02-Apr-2022 19:47:01 Europe/Berlin] PHP Warning:  Use of undefined constant APP_ROOT_DIR - assumed 'APP_ROOT_DIR' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\DWES05\soapserver\conf\conf.php on line 7
-[02-Apr-2022 19:47:01](INFO)Se ha iniciado el servicio SoapServer en la url: http://localhost/dwes05/soapserver/tarea05.wsdl
-[02-Apr-2022 19:47:01](INFO)Conexión establecida con la base de datos
-[02-Apr-2022 19:47:01](INFO)idReservas: stdClass Object
-(
-    [zona] => 0
-    [fecha] => 
-    [horaInicio] => 
-)
-
-[02-Apr-2022 19:47:01](INFO)tramo: stdClass Object
-(
-    [horaInicio] => 
-    [horaFin] => 
-    [user] => 0
-)
-
-[02-Apr-2022 19:47:01](1)zona: 0
-[02-Apr-2022 19:47:01](1)Fecha: 
-[02-Apr-2022 19:47:01](1)HoraInicio: 
-[02-Apr-2022 19:47:01](1)Tramo horaInicio: 
-[02-Apr-2022 19:47:01](1)Tramo horaFin: 
-[02-Apr-2022 19:47:01](1)Error: 
-[02-Apr-2022 20:03:48 Europe/Berlin] PHP Warning:  Use of undefined constant APP_ROOT_DIR - assumed 'APP_ROOT_DIR' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\DWES05\soapserver\conf\conf.php on line 2
-[02-Apr-2022 20:03:48 Europe/Berlin] PHP Warning:  Use of undefined constant APP_ROOT_DIR - assumed 'APP_ROOT_DIR' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\DWES05\soapserver\conf\conf.php on line 4
-[02-Apr-2022 20:03:48 Europe/Berlin] PHP Warning:  Use of undefined constant APP_ROOT_DIR - assumed 'APP_ROOT_DIR' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\DWES05\soapserver\conf\conf.php on line 5
-[02-Apr-2022 20:03:48 Europe/Berlin] PHP Warning:  Use of undefined constant APP_ROOT_DIR - assumed 'APP_ROOT_DIR' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\DWES05\soapserver\conf\conf.php on line 6
-[02-Apr-2022 20:03:48 Europe/Berlin] PHP Warning:  Use of undefined constant APP_ROOT_DIR - assumed 'APP_ROOT_DIR' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\DWES05\soapserver\conf\conf.php on line 7
-[02-Apr-2022 20:03:48](INFO)Se ha iniciado el servicio SoapServer en la url: http://localhost/dwes05/soapserver/tarea05.wsdl
-[02-Apr-2022 20:03:48](INFO)Conexión establecida con la base de datos
-[02-Apr-2022 20:03:48](INFO)idReservas: stdClass Object
-(
-    [zona] => 9
-    [fecha] => 2022-01-25
-    [horaInicio] => 16:00
-)
-
-[02-Apr-2022 20:03:48](INFO)tramo: stdClass Object
-(
-    [horaInicio] => 18:00
-    [horaFin] => 19:00
-    [user] => 0
-)
-
-[02-Apr-2022 20:03:48](1)zona: 9
-[02-Apr-2022 20:03:48](1)Fecha: 2022-01-25
-[02-Apr-2022 20:03:48](1)HoraInicio: 16:00
-[02-Apr-2022 20:03:48](1)Tramo horaInicio: 18:00
-[02-Apr-2022 20:03:48](1)Tramo horaFin: 19:00
-[02-Apr-2022 20:03:48](1)Error: 
-[02-Apr-2022 20:03:48](INFO)listarReserva: Array
-(
-    [0] => Array
-        (
-            [inicio] => 12:00:00
-            [fin] => 13:00:00
-            [user_id] => 12
-        )
-
-    [1] => Array
-        (
-            [inicio] => 14:00:00
-            [fin] => 15:00:00
-            [user_id] => 12
-        )
-
-    [2] => Array
-        (
-            [inicio] => 16:00:00
-            [fin] => 17:00:00
-            [user_id] => 12
-        )
-
-)
-
-[02-Apr-2022 20:03:48](1)tramos: 1
-[02-Apr-2022 20:03:48](INFO)Reserva ret=modificarReserva: 1
-[03-Apr-2022 08:05:15 Europe/Berlin] PHP Warning:  Use of undefined constant APP_ROOT_DIR - assumed 'APP_ROOT_DIR' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\DWES05\soapserver\conf\conf.php on line 2
-[03-Apr-2022 08:05:15 Europe/Berlin] PHP Warning:  Use of undefined constant APP_ROOT_DIR - assumed 'APP_ROOT_DIR' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\DWES05\soapserver\conf\conf.php on line 4
-[03-Apr-2022 08:05:15 Europe/Berlin] PHP Warning:  Use of undefined constant APP_ROOT_DIR - assumed 'APP_ROOT_DIR' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\DWES05\soapserver\conf\conf.php on line 5
-[03-Apr-2022 08:05:15 Europe/Berlin] PHP Warning:  Use of undefined constant APP_ROOT_DIR - assumed 'APP_ROOT_DIR' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\DWES05\soapserver\conf\conf.php on line 6
-[03-Apr-2022 08:05:15 Europe/Berlin] PHP Warning:  Use of undefined constant APP_ROOT_DIR - assumed 'APP_ROOT_DIR' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\DWES05\soapserver\conf\conf.php on line 7
-[03-Apr-2022 08:05:15](INFO)Se ha iniciado el servicio SoapServer en la url: http://localhost/dwes05/soapserver/tarea05.wsdl
-[03-Apr-2022 08:05:15](INFO)Conexión establecida con la base de datos
-[03-Apr-2022 08:05:15](INFO)idReservas: stdClass Object
-(
-    [zona] => 9
-    [fecha] => 2022-01-25
-    [horaInicio] => 18:00
-)
-
-[03-Apr-2022 08:05:15](INFO)tramo: stdClass Object
-(
-    [horaInicio] => 20:00
-    [horaFin] => 22:00
-    [user] => 0
-)
-
-[03-Apr-2022 08:05:15](1)zona: 9
-[03-Apr-2022 08:05:15](1)Fecha: 2022-01-25
-[03-Apr-2022 08:05:15](1)HoraInicio: 18:00
-[03-Apr-2022 08:05:15](1)Tramo horaInicio: 20:00
-[03-Apr-2022 08:05:15](1)Tramo horaFin: 22:00
-[03-Apr-2022 08:05:15](1)Error: 
-[03-Apr-2022 08:05:15](INFO)listarReserva: Array
-(
-    [0] => Array
-        (
-            [inicio] => 12:00:00
-            [fin] => 13:00:00
-            [user_id] => 12
-        )
-
-    [1] => Array
-        (
-            [inicio] => 14:00:00
-            [fin] => 15:00:00
-            [user_id] => 12
-        )
-
-    [2] => Array
-        (
-            [inicio] => 18:00:00
-            [fin] => 19:00:00
-            [user_id] => 12
-        )
-
-)
-
-[03-Apr-2022 08:05:15](1)tramos: 1
-[03-Apr-2022 08:05:15](INFO)Reserva ret=modificarReserva: 1
-[03-Apr-2022 08:13:24 Europe/Berlin] PHP Warning:  Use of undefined constant APP_ROOT_DIR - assumed 'APP_ROOT_DIR' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\DWES05\soapserver\conf\conf.php on line 2
-[03-Apr-2022 08:13:24 Europe/Berlin] PHP Warning:  Use of undefined constant APP_ROOT_DIR - assumed 'APP_ROOT_DIR' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\DWES05\soapserver\conf\conf.php on line 4
-[03-Apr-2022 08:13:24 Europe/Berlin] PHP Warning:  Use of undefined constant APP_ROOT_DIR - assumed 'APP_ROOT_DIR' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\DWES05\soapserver\conf\conf.php on line 5
-[03-Apr-2022 08:13:24 Europe/Berlin] PHP Warning:  Use of undefined constant APP_ROOT_DIR - assumed 'APP_ROOT_DIR' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\DWES05\soapserver\conf\conf.php on line 6
-[03-Apr-2022 08:13:24 Europe/Berlin] PHP Warning:  Use of undefined constant APP_ROOT_DIR - assumed 'APP_ROOT_DIR' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\DWES05\soapserver\conf\conf.php on line 7
-[03-Apr-2022 08:13:24](INFO)Se ha iniciado el servicio SoapServer en la url: http://localhost/dwes05/soapserver/tarea05.wsdl
-[03-Apr-2022 08:13:24](INFO)Conexión establecida con la base de datos
-[03-Apr-2022 08:13:24](INFO)idReservas: stdClass Object
-(
-    [zona] => 9
-    [fecha] => 2022-01-25
-    [horaInicio] => 20:00
-)
-
-[03-Apr-2022 08:13:24](INFO)tramo: stdClass Object
-(
     [horaInicio] => 11:00
-    [horaFin] => 11:30
-    [user] => 0
 )
 
-[03-Apr-2022 08:13:24](1)zona: 9
-[03-Apr-2022 08:13:24](1)Fecha: 2022-01-25
-[03-Apr-2022 08:13:24](1)HoraInicio: 20:00
-[03-Apr-2022 08:13:24](1)Tramo horaInicio: 11:00
-[03-Apr-2022 08:13:24](1)Tramo horaFin: 11:30
-[03-Apr-2022 08:13:24](1)Error: 
-[03-Apr-2022 08:13:24](INFO)listarReserva: Array
+[03-Apr-2022 19:17:33](1)Hora_inicio: 11:00:00
+[03-Apr-2022 19:17:33 Europe/Berlin] PHP Notice:  Array to string conversion in C:\xampp\htdocs\DWES05\soapserver\src\ReservasSoapHandler.php on line 146
+[03-Apr-2022 19:17:33](INFO)hayReserva: Array
+[03-Apr-2022 19:34:40 Europe/Berlin] PHP Warning:  Use of undefined constant APP_ROOT_DIR - assumed 'APP_ROOT_DIR' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\DWES05\soapserver\conf\conf.php on line 2
+[03-Apr-2022 19:34:40 Europe/Berlin] PHP Warning:  Use of undefined constant APP_ROOT_DIR - assumed 'APP_ROOT_DIR' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\DWES05\soapserver\conf\conf.php on line 4
+[03-Apr-2022 19:34:40 Europe/Berlin] PHP Warning:  Use of undefined constant APP_ROOT_DIR - assumed 'APP_ROOT_DIR' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\DWES05\soapserver\conf\conf.php on line 5
+[03-Apr-2022 19:34:40 Europe/Berlin] PHP Warning:  Use of undefined constant APP_ROOT_DIR - assumed 'APP_ROOT_DIR' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\DWES05\soapserver\conf\conf.php on line 6
+[03-Apr-2022 19:34:40 Europe/Berlin] PHP Warning:  Use of undefined constant APP_ROOT_DIR - assumed 'APP_ROOT_DIR' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\DWES05\soapserver\conf\conf.php on line 7
+[03-Apr-2022 19:34:40](INFO)Se ha iniciado el servicio SoapServer en la url: http://localhost/dwes05/soapserver/tarea05.wsdl
+[03-Apr-2022 19:34:40](INFO)Conexión establecida con la base de datos
+[03-Apr-2022 19:34:40](1)Datos fecha:2022-01-25
+[03-Apr-2022 19:34:40](9)Datos zona: 
+[03-Apr-2022 19:34:40](INFO)Error: 
+[03-Apr-2022 19:34:40](1)listarReserva: 1
+[03-Apr-2022 19:34:40](INFO)Tramos encontrados:class@anonymous Object
 (
-    [0] => Array
+    [tramo] => Array
         (
-            [inicio] => 12:00:00
-            [fin] => 13:00:00
-            [user_id] => 12
-        )
+            [0] => class@anonymous Object
+                (
+                    [horaInicio] => 12:00:00
+                    [horaFin] => 13:00:00
+                    [user] => 12
+                )
 
-    [1] => Array
-        (
-            [inicio] => 14:00:00
-            [fin] => 15:00:00
-            [user_id] => 12
-        )
+            [1] => class@anonymous Object
+                (
+                    [horaInicio] => 14:00:00
+                    [horaFin] => 15:00:00
+                    [user] => 12
+                )
 
-    [2] => Array
-        (
-            [inicio] => 20:00:00
-            [fin] => 22:00:00
-            [user_id] => 12
         )
 
 )
 
-[03-Apr-2022 08:13:24](1)tramos: 1
-[03-Apr-2022 08:13:24](INFO)Reserva ret=modificarReserva: 1
-[03-Apr-2022 08:15:36 Europe/Berlin] PHP Warning:  Use of undefined constant APP_ROOT_DIR - assumed 'APP_ROOT_DIR' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\DWES05\soapserver\conf\conf.php on line 2
-[03-Apr-2022 08:15:36 Europe/Berlin] PHP Warning:  Use of undefined constant APP_ROOT_DIR - assumed 'APP_ROOT_DIR' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\DWES05\soapserver\conf\conf.php on line 4
-[03-Apr-2022 08:15:36 Europe/Berlin] PHP Warning:  Use of undefined constant APP_ROOT_DIR - assumed 'APP_ROOT_DIR' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\DWES05\soapserver\conf\conf.php on line 5
-[03-Apr-2022 08:15:36 Europe/Berlin] PHP Warning:  Use of undefined constant APP_ROOT_DIR - assumed 'APP_ROOT_DIR' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\DWES05\soapserver\conf\conf.php on line 6
-[03-Apr-2022 08:15:36 Europe/Berlin] PHP Warning:  Use of undefined constant APP_ROOT_DIR - assumed 'APP_ROOT_DIR' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\DWES05\soapserver\conf\conf.php on line 7
-[03-Apr-2022 08:15:36](INFO)Se ha iniciado el servicio SoapServer en la url: http://localhost/dwes05/soapserver/tarea05.wsdl
-[03-Apr-2022 08:15:36](INFO)Conexión establecida con la base de datos
+[03-Apr-2022 19:34:40](INFO)listaReservas SoapHandler:class@anonymous Object
+(
+    [fecha] => 2022-01-25
+    [zona] => 9
+    [reservas] => class@anonymous Object
+        (
+            [tramo] => Array
+                (
+                    [0] => class@anonymous Object
+                        (
+                            [horaInicio] => 12:00:00
+                            [horaFin] => 13:00:00
+                            [user] => 12
+                        )
+
+                    [1] => class@anonymous Object
+                        (
+                            [horaInicio] => 14:00:00
+                            [horaFin] => 15:00:00
+                            [user] => 12
+                        )
+
+                )
+
+        )
+
+)
+
+[03-Apr-2022 19:37:38 Europe/Berlin] PHP Warning:  Use of undefined constant APP_ROOT_DIR - assumed 'APP_ROOT_DIR' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\DWES05\soapserver\conf\conf.php on line 2
+[03-Apr-2022 19:37:38 Europe/Berlin] PHP Warning:  Use of undefined constant APP_ROOT_DIR - assumed 'APP_ROOT_DIR' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\DWES05\soapserver\conf\conf.php on line 4
+[03-Apr-2022 19:37:38 Europe/Berlin] PHP Warning:  Use of undefined constant APP_ROOT_DIR - assumed 'APP_ROOT_DIR' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\DWES05\soapserver\conf\conf.php on line 5
+[03-Apr-2022 19:37:38 Europe/Berlin] PHP Warning:  Use of undefined constant APP_ROOT_DIR - assumed 'APP_ROOT_DIR' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\DWES05\soapserver\conf\conf.php on line 6
+[03-Apr-2022 19:37:38 Europe/Berlin] PHP Warning:  Use of undefined constant APP_ROOT_DIR - assumed 'APP_ROOT_DIR' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\DWES05\soapserver\conf\conf.php on line 7
+[03-Apr-2022 19:37:38](INFO)Se ha iniciado el servicio SoapServer en la url: http://localhost/dwes05/soapserver/tarea05.wsdl
+[03-Apr-2022 19:37:38](INFO)Conexión establecida con la base de datos
+[03-Apr-2022 19:37:38](1)Datos fecha:2022-01-24
+[03-Apr-2022 19:37:38](9)Datos zona: 
+[03-Apr-2022 19:37:38](1)listarReserva: 1
+[03-Apr-2022 19:40:11 Europe/Berlin] PHP Warning:  Use of undefined constant APP_ROOT_DIR - assumed 'APP_ROOT_DIR' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\DWES05\soapserver\conf\conf.php on line 2
+[03-Apr-2022 19:40:11 Europe/Berlin] PHP Warning:  Use of undefined constant APP_ROOT_DIR - assumed 'APP_ROOT_DIR' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\DWES05\soapserver\conf\conf.php on line 4
+[03-Apr-2022 19:40:11 Europe/Berlin] PHP Warning:  Use of undefined constant APP_ROOT_DIR - assumed 'APP_ROOT_DIR' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\DWES05\soapserver\conf\conf.php on line 5
+[03-Apr-2022 19:40:11 Europe/Berlin] PHP Warning:  Use of undefined constant APP_ROOT_DIR - assumed 'APP_ROOT_DIR' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\DWES05\soapserver\conf\conf.php on line 6
+[03-Apr-2022 19:40:11 Europe/Berlin] PHP Warning:  Use of undefined constant APP_ROOT_DIR - assumed 'APP_ROOT_DIR' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\DWES05\soapserver\conf\conf.php on line 7
+[03-Apr-2022 19:40:11](INFO)Se ha iniciado el servicio SoapServer en la url: http://localhost/dwes05/soapserver/tarea05.wsdl
+[03-Apr-2022 19:40:11](INFO)Conexión establecida con la base de datos
+[03-Apr-2022 19:40:11](1)Datos fecha:2022-01-25
+[03-Apr-2022 19:40:11](9)Datos zona: 
+[03-Apr-2022 19:40:11](1)listarReserva: 1
+[03-Apr-2022 19:47:22 Europe/Berlin] PHP Warning:  Use of undefined constant APP_ROOT_DIR - assumed 'APP_ROOT_DIR' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\DWES05\soapserver\conf\conf.php on line 2
+[03-Apr-2022 19:47:22 Europe/Berlin] PHP Warning:  Use of undefined constant APP_ROOT_DIR - assumed 'APP_ROOT_DIR' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\DWES05\soapserver\conf\conf.php on line 4
+[03-Apr-2022 19:47:22 Europe/Berlin] PHP Warning:  Use of undefined constant APP_ROOT_DIR - assumed 'APP_ROOT_DIR' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\DWES05\soapserver\conf\conf.php on line 5
+[03-Apr-2022 19:47:22 Europe/Berlin] PHP Warning:  Use of undefined constant APP_ROOT_DIR - assumed 'APP_ROOT_DIR' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\DWES05\soapserver\conf\conf.php on line 6
+[03-Apr-2022 19:47:22 Europe/Berlin] PHP Warning:  Use of undefined constant APP_ROOT_DIR - assumed 'APP_ROOT_DIR' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\DWES05\soapserver\conf\conf.php on line 7
+[03-Apr-2022 19:47:22](INFO)Se ha iniciado el servicio SoapServer en la url: http://localhost/dwes05/soapserver/tarea05.wsdl
+[03-Apr-2022 19:47:22](INFO)Conexión establecida con la base de datos
+[03-Apr-2022 19:47:22](1)Datos fecha:2022-01-25
+[03-Apr-2022 19:47:22](8)Datos zona: 
+[03-Apr-2022 19:47:22](1)listarReserva: 1

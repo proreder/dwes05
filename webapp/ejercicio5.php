@@ -25,12 +25,11 @@ $smarty->cache_dir = CACHE_DIR;
 //instaciamos la clase Peticion
 $p= new Peticion();
 //variables
+$eliminado=false;
 $errores=[];
 $resultado=0;
 //verficamos que se han recibido datos del formulario
 if($p->has('enviar')){
-    echo "formulario recibido";
-    var_dump($_POST);
     
     //verificamos que todos los campos tengan datos y sean correctos
     //***zona**//
@@ -59,7 +58,7 @@ if($p->has('enviar')){
          $errores[]="La hora de inicio no tiene el formato correcto";
      }
      
-     //si bo hay errores
+     //si no hay errores
      if(empty($errores)){
         //creamos las instacia de SoapServer y le pasamos el descriptor WDSL
         $client=new SoapClient($wsdluri, array('trace' => 1));
@@ -69,17 +68,14 @@ if($p->has('enviar')){
         $idreserva->fecha=$fecha;
         $idreserva->horaInicio=$horaInicio;
         $resultado=$client->eliminarReserva($idreserva);
-        echo "<br>Resultado: ".$resultado;
+        
      }
-    
-}else{
-    $errores[]='Formulario no recibido';
     
 }
     //procesamos los resultados devueltos por ReservasSoapHandler
     switch($resultado){
         case  1:
-          $result="El registro se ha eliminado correctamente";
+          $eliminado=true;
           break;
         case -1:
           $errores[]="ERROR: No se ha eliminado ningún registro";
@@ -93,14 +89,14 @@ if($p->has('enviar')){
         case -4:
           $errores[]="ERROR: El ID de zona es incorrecto";
           break;
+         case -5:
+          $errores[]="ERROR: La reserva a eliminar no existe.";
+          break;
         
     }
-    if(!empty($errores)){
-        $smarty->assign('errores', $errores);
-        $smarty->assign('titulo','Eliminar una reserva');
-        $smarty->display('../templates/ejercicio5.tpl');
-    }else{
-        $smarty->assign('resultado', $result);
-        $smarty->assign('titulo','Resultado de la operación eliminar reserva');
-        $smarty->display('../templates/ejercicio5_resultado.tpl');
-    }
+    //mostramos la plantilla
+    $smarty->assign('errores', $errores);
+    $smarty->assign('eliminado', $eliminado);
+    $smarty->assign('titulo','Eliminar una reserva');
+    $smarty->display('../templates/ejercicio5.tpl');
+   

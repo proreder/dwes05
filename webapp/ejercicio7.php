@@ -114,7 +114,7 @@ if($p->has('enviar')){
             $errores[]="Error: el nuevo tramo pisa sobre otro existente.";
             break;
     }
-        //mostraamos la plantilla smarty
+        //mostramos la plantilla smarty
         $smarty->assign('errores', $errores);
         $smarty->assign('modificado', $modificado);
         $smarty->assign('titulo','Modificar reservas');
